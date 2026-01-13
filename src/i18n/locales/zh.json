@@ -1,0 +1,103 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "add": "添加",
+    "search": "搜索",
+    "filter": "筛选",
+    "export": "导出",
+    "import": "导入",
+    "back": "返回",
+    "next": "下一步",
+    "submit": "提交",
+    "confirm": "确认",
+    "success": "成功",
+    "error": "错误",
+    "warning": "警告",
+    "info": "信息"
+  },
+  "landing": {
+    "hero": {
+      "title": "一个平台",
+      "titleHighlight": "服务于教会、学校和组织",
+      "subtitle": "DASYNK 是一个一体化 SaaS 平台，帮助您轻松管理社区、财务和运营。",
+      "cta": "创建账户",
+      "secondaryCta": "了解更多"
+    },
+    "features": {
+      "title": "您需要的一切",
+      "subtitle": "为您的特定需求设计的强大工具",
+      "website": {
+        "title": "自定义网站",
+        "description": "创建自己的品牌网站，自动生成子域名"
+      },
+      "database": {
+        "title": "成员数据库",
+        "description": "管理具有完整档案的成员、学生或员工"
+      },
+      "finance": {
+        "title": "财务管理",
+        "description": "跟踪收入、支出并生成详细报告"
+      }
+    },
+    "categories": {
+      "title": "为您的社区而建",
+      "subtitle": "选择适合您需求的解决方案",
+      "church": {
+        "title": "教会",
+        "description": "管理成员、十一奉献、部门和事工"
+      },
+      "school": {
+        "title": "学校",
+        "description": "学生注册、成绩、考勤和在线学习"
+      },
+      "organization": {
+        "title": "组织",
+        "description": "项目、志愿者、捐赠和报告"
+      }
+    }
+  },
+  "auth": {
+    "login": "登录",
+    "signup": "注册",
+    "logout": "退出",
+    "email": "电子邮件",
+    "password": "密码",
+    "fullName": "全名",
+    "createAccount": "创建账户",
+    "welcomeBack": "欢迎回来"
+  },
+  "welcome": {
+    "title": "欢迎来到 DASYNK！",
+    "subtitle": "您的账户已成功创建。让我们开始吧！",
+    "getStarted": "开始使用"
+  },
+  "categorySelection": {
+    "title": "您是什么类型的组织？",
+    "subtitle": "选择您的类别以个性化您的体验",
+    "church": {
+      "title": "教会",
+      "description": "管理成员、十一奉献、部门、礼拜和灵性成长项目"
+    },
+    "school": {
+      "title": "学校",
+      "description": "处理学生注册、成绩、考勤、在线学习和学术管理"
+    },
+    "organization": {
+      "title": "组织",
+      "description": "协调项目、志愿者、捐赠、活动和组织运营"
+    },
+    "continue": "继续使用 {{category}}"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "overview": "概览"
+  },
+  "sidebar": {
+    "dashboard": "仪表板",
+    "settings": "设置"
+  }
+}

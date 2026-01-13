@@ -1,0 +1,128 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Añadir",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "export": "Exportar",
+    "import": "Importar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "submit": "Enviar",
+    "confirm": "Confirmar",
+    "success": "Éxito",
+    "error": "Error",
+    "warning": "Advertencia",
+    "info": "Info"
+  },
+  "landing": {
+    "hero": {
+      "title": "Una Plataforma para",
+      "titleHighlight": "Iglesias, Escuelas y Organizaciones",
+      "subtitle": "DASYNK es la plataforma SaaS todo en uno que te ayuda a gestionar tu comunidad, finanzas y operaciones con facilidad.",
+      "cta": "Crear una Cuenta",
+      "secondaryCta": "Saber Más"
+    },
+    "features": {
+      "title": "Todo lo que Necesitas",
+      "subtitle": "Herramientas poderosas diseñadas para tus necesidades específicas",
+      "website": {
+        "title": "Sitio Web Personalizado",
+        "description": "Crea tu propio sitio web con subdominio automático"
+      },
+      "database": {
+        "title": "Base de Datos de Miembros",
+        "description": "Gestiona miembros, estudiantes o personal con perfiles completos"
+      },
+      "finance": {
+        "title": "Gestión Financiera",
+        "description": "Rastrea ingresos, gastos y genera informes detallados"
+      },
+      "communication": {
+        "title": "Comunicación",
+        "description": "Envía correos, SMS y gestiona anuncios"
+      },
+      "events": {
+        "title": "Gestión de Eventos",
+        "description": "Programa y gestiona eventos, inscripciones y asistencia"
+      },
+      "security": {
+        "title": "Seguridad Empresarial",
+        "description": "Control de acceso basado en roles y aislamiento de datos"
+      }
+    },
+    "categories": {
+      "title": "Diseñado para tu Comunidad",
+      "subtitle": "Elige la solución que se adapte a tus necesidades",
+      "church": {
+        "title": "Iglesias",
+        "description": "Gestiona miembros, diezmos, departamentos y ministerios"
+      },
+      "school": {
+        "title": "Escuelas",
+        "description": "Inscripciones, calificaciones, asistencia y e-learning"
+      },
+      "organization": {
+        "title": "Organizaciones",
+        "description": "Proyectos, voluntarios, donaciones e informes"
+      }
+    },
+    "footer": {
+      "rights": "Todos los derechos reservados",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    }
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "logout": "Cerrar Sesión",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "fullName": "Nombre Completo",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes cuenta?",
+    "hasAccount": "¿Ya tienes cuenta?",
+    "createAccount": "Crear Cuenta",
+    "welcomeBack": "Bienvenido de Nuevo",
+    "signInToContinue": "Inicia sesión para continuar a tu panel"
+  },
+  "welcome": {
+    "title": "¡Bienvenido a DASYNK!",
+    "subtitle": "Tu cuenta ha sido creada exitosamente. ¡Comencemos!",
+    "getStarted": "Comenzar"
+  },
+  "categorySelection": {
+    "title": "¿Qué tipo de organización eres?",
+    "subtitle": "Selecciona tu categoría para personalizar tu experiencia",
+    "church": {
+      "title": "Iglesia",
+      "description": "Gestiona miembros, diezmos, departamentos, servicios y programas de crecimiento espiritual"
+    },
+    "school": {
+      "title": "Escuela",
+      "description": "Maneja inscripciones, calificaciones, asistencia, e-learning y administración académica"
+    },
+    "organization": {
+      "title": "Organización",
+      "description": "Coordina proyectos, voluntarios, donaciones, eventos y operaciones organizacionales"
+    },
+    "continue": "Continuar con {{category}}"
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "overview": "Resumen",
+    "recentActivity": "Actividad Reciente",
+    "quickActions": "Acciones Rápidas",
+    "statistics": "Estadísticas"
+  },
+  "sidebar": {
+    "dashboard": "Panel",
+    "settings": "Configuración"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "confirm": "Confirm",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info"
+  },
+  "landing": {
+    "hero": {
+      "title": "One Platform for",
+      "titleHighlight": "Churches, Schools & Organizations",
+      "subtitle": "DASYNK is the all-in-one SaaS platform that helps you manage your community, finances, and operations with ease.",
+      "cta": "Create an Account",
+      "secondaryCta": "Learn More"
+    },
+    "features": {
+      "title": "Everything You Need",
+      "subtitle": "Powerful tools designed for your specific needs",
+      "website": {
+        "title": "Custom Website",
+        "description": "Create your own branded website with automatic subdomain"
+      },
+      "database": {
+        "title": "Member Database",
+        "description": "Manage members, students, or staff with complete profiles"
+      },
+      "finance": {
+        "title": "Financial Management",
+        "description": "Track income, expenses, and generate detailed reports"
+      },
+      "communication": {
+        "title": "Communication",
+        "description": "Send emails, SMS, and manage announcements"
+      },
+      "events": {
+        "title": "Event Management",
+        "description": "Schedule and manage events, registrations, and attendance"
+      },
+      "security": {
+        "title": "Enterprise Security",
+        "description": "Role-based access control and data isolation"
+      }
+    },
+    "categories": {
+      "title": "Built for Your Community",
+      "subtitle": "Choose the solution that fits your needs",
+      "church": {
+        "title": "Churches",
+        "description": "Manage members, tithes, departments, and ministries"
+      },
+      "school": {
+        "title": "Schools",
+        "description": "Student enrollment, grades, attendance, and e-learning"
+      },
+      "organization": {
+        "title": "Organizations",
+        "description": "Projects, volunteers, donations, and reporting"
+      }
+    },
+    "footer": {
+      "rights": "All rights reserved",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "auth": {
+    "login": "Log In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "createAccount": "Create Account",
+    "welcomeBack": "Welcome Back",
+    "signInToContinue": "Sign in to continue to your dashboard",
+    "createYourAccount": "Create Your Account",
+    "joinDasynk": "Join DASYNK and start managing your community",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "passwordMinLength": "Password must be at least 6 characters",
+    "invalidEmail": "Invalid email address"
+  },
+  "welcome": {
+    "title": "Welcome to DASYNK!",
+    "subtitle": "Your account has been created successfully. Let's get started!",
+    "getStarted": "Get Started"
+  },
+  "categorySelection": {
+    "title": "What type of organization are you?",
+    "subtitle": "Select your category to customize your experience",
+    "church": {
+      "title": "Church",
+      "description": "Manage members, tithes, departments, worship services, and spiritual growth programs"
+    },
+    "school": {
+      "title": "School",
+      "description": "Handle student enrollment, grades, attendance, e-learning, and academic administration"
+    },
+    "organization": {
+      "title": "Organization",
+      "description": "Coordinate projects, volunteers, donations, events, and organizational operations"
+    },
+    "continue": "Continue with {{category}}"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "statistics": "Statistics"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "settings": "Settings"
+  },
+  "school": {
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "students": "Students & Admissions",
+      "classes": "Classes & Teaching",
+      "courses": "Courses & E-Learning",
+      "grades": "Grades & Exams",
+      "finance": "Finance & Accounting",
+      "staff": "Staff & Administration",
+      "attendance": "Attendance & Discipline",
+      "events": "Events",
+      "settings": "Settings"
+    },
+    "students": {
+      "title": "Students",
+      "list": "Student List",
+      "add": "Add Student",
+      "enrollments": "Enrollments",
+      "records": "Academic Records",
+      "parents": "Parents & Guardians"
+    },
+    "classes": {
+      "title": "Classes",
+      "levels": "Grade Levels",
+      "schedule": "Schedule",
+      "teachers": "Teachers",
+      "subjects": "Subjects",
+      "assignments": "Assignments"
+    }
+  },
+  "church": {
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "members": "Members",
+      "groups": "Groups & Departments",
+      "services": "Services & Worship",
+      "media": "Media & Streaming",
+      "finance": "Donations & Finance",
+      "discipleship": "Discipleship",
+      "visitors": "Visitors",
+      "events": "Church Events",
+      "communication": "Communication",
+      "settings": "Settings"
+    },
+    "members": {
+      "title": "Members",
+      "list": "Member List",
+      "add": "Add Member",
+      "conversions": "Conversions",
+      "baptisms": "Baptisms",
+      "cards": "Member Cards"
+    }
+  },
+  "organization": {
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "members": "Members & Subscriptions",
+      "projects": "Projects & Programs",
+      "volunteers": "Volunteers & Teams",
+      "finance": "Finance & Accounting",
+      "documents": "Documents",
+      "communication": "Communication",
+      "events": "Events & Activities",
+      "inventory": "Inventory",
+      "settings": "Settings"
+    },
+    "members": {
+      "title": "Members",
+      "list": "Member List",
+      "add": "Add Member",
+      "subscriptions": "Subscriptions",
+      "payments": "Payment History"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "organization": "Organization Info",
+    "branding": "Branding",
+    "payments": "Payment Settings",
+    "roles": "Roles & Permissions",
+    "import": "Import / Export",
+    "security": "Security"
+  }
+}

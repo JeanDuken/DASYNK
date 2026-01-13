@@ -1,0 +1,103 @@
+{
+  "common": {
+    "loading": "Laden...",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "export": "Exportieren",
+    "import": "Importieren",
+    "back": "Zurück",
+    "next": "Weiter",
+    "submit": "Absenden",
+    "confirm": "Bestätigen",
+    "success": "Erfolg",
+    "error": "Fehler",
+    "warning": "Warnung",
+    "info": "Info"
+  },
+  "landing": {
+    "hero": {
+      "title": "Eine Plattform für",
+      "titleHighlight": "Kirchen, Schulen und Organisationen",
+      "subtitle": "DASYNK ist die All-in-One SaaS-Plattform, die Ihnen hilft, Ihre Gemeinschaft, Finanzen und Abläufe mühelos zu verwalten.",
+      "cta": "Konto Erstellen",
+      "secondaryCta": "Mehr Erfahren"
+    },
+    "features": {
+      "title": "Alles was Sie Brauchen",
+      "subtitle": "Leistungsstarke Tools für Ihre spezifischen Anforderungen",
+      "website": {
+        "title": "Eigene Website",
+        "description": "Erstellen Sie Ihre gebrandete Website mit automatischer Subdomain"
+      },
+      "database": {
+        "title": "Mitgliederdatenbank",
+        "description": "Verwalten Sie Mitglieder, Schüler oder Personal mit vollständigen Profilen"
+      },
+      "finance": {
+        "title": "Finanzverwaltung",
+        "description": "Verfolgen Sie Einnahmen, Ausgaben und erstellen Sie detaillierte Berichte"
+      }
+    },
+    "categories": {
+      "title": "Für Ihre Gemeinschaft Gebaut",
+      "subtitle": "Wählen Sie die Lösung, die zu Ihren Bedürfnissen passt",
+      "church": {
+        "title": "Kirchen",
+        "description": "Verwalten Sie Mitglieder, Zehnten, Abteilungen und Dienste"
+      },
+      "school": {
+        "title": "Schulen",
+        "description": "Schüleranmeldung, Noten, Anwesenheit und E-Learning"
+      },
+      "organization": {
+        "title": "Organisationen",
+        "description": "Projekte, Freiwillige, Spenden und Berichterstattung"
+      }
+    }
+  },
+  "auth": {
+    "login": "Anmelden",
+    "signup": "Registrieren",
+    "logout": "Abmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "fullName": "Vollständiger Name",
+    "createAccount": "Konto Erstellen",
+    "welcomeBack": "Willkommen Zurück"
+  },
+  "welcome": {
+    "title": "Willkommen bei DASYNK!",
+    "subtitle": "Ihr Konto wurde erfolgreich erstellt. Los geht's!",
+    "getStarted": "Loslegen"
+  },
+  "categorySelection": {
+    "title": "Welche Art von Organisation sind Sie?",
+    "subtitle": "Wählen Sie Ihre Kategorie, um Ihre Erfahrung anzupassen",
+    "church": {
+      "title": "Kirche",
+      "description": "Verwalten Sie Mitglieder, Zehnten, Abteilungen, Gottesdienste und geistliche Wachstumsprogramme"
+    },
+    "school": {
+      "title": "Schule",
+      "description": "Behandeln Sie Schüleranmeldungen, Noten, Anwesenheit, E-Learning und akademische Verwaltung"
+    },
+    "organization": {
+      "title": "Organisation",
+      "description": "Koordinieren Sie Projekte, Freiwillige, Spenden, Veranstaltungen und organisatorische Abläufe"
+    },
+    "continue": "Weiter mit {{category}}"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Übersicht"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "settings": "Einstellungen"
+  }
+}
