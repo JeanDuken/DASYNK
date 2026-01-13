@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Church, GraduationCap, Building2, ArrowRight, Check } from 'lucide-react';
+import { Church, GraduationCap, Building2, ArrowRight, Check, ArrowLeft } from 'lucide-react';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
+import { useOrganizationContext } from '@/contexts/OrganizationContext';
 import { toast } from 'sonner';
 
 type CategoryType = 'church' | 'school' | 'organization';
@@ -21,29 +22,20 @@ const categories: { type: CategoryType; icon: typeof Church; color: string }[] =
 const SelectCategory = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { user } = useAuth();
+  const { organizations, refreshOrganizations } = useOrganizationContext();
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  
+  const isCreatingNew = searchParams.get('new') === 'true';
 
-  // Check if user already has an organization and redirect
+  // Check if user already has an organization and redirect (only if not creating new)
   useEffect(() => {
-    const checkExistingOrganization = async () => {
-      if (!user) return;
-      
-      const { data: existingOrgs } = await supabase
-        .from('organizations')
-        .select('id, type')
-        .eq('owner_id', user.id)
-        .limit(1);
-      
-      if (existingOrgs && existingOrgs.length > 0) {
-        // User already has an organization, redirect to dashboard
-        navigate(`/dashboard/${existingOrgs[0].type}`);
-      }
-    };
-    
-    checkExistingOrganization();
-  }, [user, navigate]);
+    if (!isCreatingNew && organizations.length > 0) {
+      navigate(`/dashboard/${organizations[0].type}`);
+    }
+  }, [organizations, navigate, isCreatingNew]);
 
   const handleContinue = async () => {
     if (!selectedCategory || !user) return;
@@ -54,8 +46,8 @@ const SelectCategory = () => {
       const { data: org, error: orgError } = await supabase
         .from('organizations')
         .insert({
-          name: `My ${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}`,
-          slug: `${selectedCategory}-${user.id.substring(0, 8)}`,
+          name: `My ${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} ${organizations.length + 1}`,
+          slug: `${selectedCategory}-${user.id.substring(0, 8)}-${Date.now()}`,
           type: selectedCategory,
           owner_id: user.id,
         })
@@ -81,6 +73,9 @@ const SelectCategory = () => {
         .update({ onboarding_completed: true })
         .eq('id', user.id);
 
+      // Refresh organizations in context
+      await refreshOrganizations();
+
       navigate(`/dashboard/${selectedCategory}`);
     } catch (error: any) {
       toast.error(error.message);
@@ -91,6 +86,16 @@ const SelectCategory = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center p-4">
+      {isCreatingNew && organizations.length > 0 && (
+        <Button
+          variant="ghost"
+          className="absolute top-4 left-4 gap-2"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          {t('common.back')}
+        </Button>
+      )}
       <div className="absolute top-4 right-4">
         <LanguageSelector />
       </div>

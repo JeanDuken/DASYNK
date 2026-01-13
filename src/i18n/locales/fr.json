@@ -183,5 +183,13 @@
     "roles": "Rôles et Permissions",
     "import": "Import / Export",
     "security": "Sécurité"
+  },
+  "organizations": {
+    "title": "Organisations",
+    "search": "Rechercher une organisation...",
+    "noResults": "Aucune organisation trouvée.",
+    "createNew": "Créer une nouvelle organisation",
+    "switchTo": "Basculer vers",
+    "current": "Organisation actuelle"
   }
 }
