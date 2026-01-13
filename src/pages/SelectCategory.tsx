@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +24,26 @@ const SelectCategory = () => {
   const { user } = useAuth();
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Check if user already has an organization and redirect
+  useEffect(() => {
+    const checkExistingOrganization = async () => {
+      if (!user) return;
+      
+      const { data: existingOrgs } = await supabase
+        .from('organizations')
+        .select('id, type')
+        .eq('owner_id', user.id)
+        .limit(1);
+      
+      if (existingOrgs && existingOrgs.length > 0) {
+        // User already has an organization, redirect to dashboard
+        navigate(`/dashboard/${existingOrgs[0].type}`);
+      }
+    };
+    
+    checkExistingOrganization();
+  }, [user, navigate]);
 
   const handleContinue = async () => {
     if (!selectedCategory || !user) return;
