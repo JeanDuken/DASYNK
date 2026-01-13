@@ -80,6 +80,310 @@ export type Database = {
           },
         ]
       }
+      communication_recipients: {
+        Row: {
+          communication_id: string
+          email: string | null
+          id: string
+          member_id: string | null
+          opened_at: string | null
+          phone: string | null
+          sent_at: string | null
+          status: string | null
+        }
+        Insert: {
+          communication_id: string
+          email?: string | null
+          id?: string
+          member_id?: string | null
+          opened_at?: string | null
+          phone?: string | null
+          sent_at?: string | null
+          status?: string | null
+        }
+        Update: {
+          communication_id?: string
+          email?: string | null
+          id?: string
+          member_id?: string | null
+          opened_at?: string | null
+          phone?: string | null
+          sent_at?: string | null
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "communication_recipients_communication_id_fkey"
+            columns: ["communication_id"]
+            isOneToOne: false
+            referencedRelation: "communications"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "communication_recipients_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      communications: {
+        Row: {
+          channel: string | null
+          content: string
+          created_at: string
+          created_by: string | null
+          id: string
+          organization_id: string
+          recipient_count: number | null
+          scheduled_at: string | null
+          sent_at: string | null
+          status: string | null
+          title: string
+          type: string | null
+          updated_at: string
+        }
+        Insert: {
+          channel?: string | null
+          content: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          organization_id: string
+          recipient_count?: number | null
+          scheduled_at?: string | null
+          sent_at?: string | null
+          status?: string | null
+          title: string
+          type?: string | null
+          updated_at?: string
+        }
+        Update: {
+          channel?: string | null
+          content?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          organization_id?: string
+          recipient_count?: number | null
+          scheduled_at?: string | null
+          sent_at?: string | null
+          status?: string | null
+          title?: string
+          type?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "communications_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "communications_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      discipleship: {
+        Row: {
+          actual_end_date: string | null
+          created_at: string
+          current_step: number | null
+          expected_end_date: string | null
+          id: string
+          member_id: string
+          mentor_id: string | null
+          notes: string | null
+          organization_id: string
+          program_name: string
+          start_date: string
+          status: string | null
+          total_steps: number | null
+          updated_at: string
+        }
+        Insert: {
+          actual_end_date?: string | null
+          created_at?: string
+          current_step?: number | null
+          expected_end_date?: string | null
+          id?: string
+          member_id: string
+          mentor_id?: string | null
+          notes?: string | null
+          organization_id: string
+          program_name: string
+          start_date?: string
+          status?: string | null
+          total_steps?: number | null
+          updated_at?: string
+        }
+        Update: {
+          actual_end_date?: string | null
+          created_at?: string
+          current_step?: number | null
+          expected_end_date?: string | null
+          id?: string
+          member_id?: string
+          mentor_id?: string | null
+          notes?: string | null
+          organization_id?: string
+          program_name?: string
+          start_date?: string
+          status?: string | null
+          total_steps?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "discipleship_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "discipleship_mentor_id_fkey"
+            columns: ["mentor_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "discipleship_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      event_registrations: {
+        Row: {
+          attended: boolean | null
+          event_id: string
+          guest_email: string | null
+          guest_name: string | null
+          guest_phone: string | null
+          id: string
+          member_id: string | null
+          registered_at: string
+          status: string | null
+        }
+        Insert: {
+          attended?: boolean | null
+          event_id: string
+          guest_email?: string | null
+          guest_name?: string | null
+          guest_phone?: string | null
+          id?: string
+          member_id?: string | null
+          registered_at?: string
+          status?: string | null
+        }
+        Update: {
+          attended?: boolean | null
+          event_id?: string
+          guest_email?: string | null
+          guest_name?: string | null
+          guest_phone?: string | null
+          id?: string
+          member_id?: string | null
+          registered_at?: string
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_registrations_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "event_registrations_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          description: string | null
+          end_date: string | null
+          event_type: string | null
+          id: string
+          location: string | null
+          max_attendees: number | null
+          organization_id: string
+          registration_deadline: string | null
+          registration_required: boolean | null
+          start_date: string
+          status: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          end_date?: string | null
+          event_type?: string | null
+          id?: string
+          location?: string | null
+          max_attendees?: number | null
+          organization_id: string
+          registration_deadline?: string | null
+          registration_required?: boolean | null
+          start_date: string
+          status?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          end_date?: string | null
+          event_type?: string | null
+          id?: string
+          location?: string | null
+          max_attendees?: number | null
+          organization_id?: string
+          registration_deadline?: string | null
+          registration_required?: boolean | null
+          start_date?: string
+          status?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "events_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       finance_categories: {
         Row: {
           category_type: string
@@ -222,6 +526,108 @@ export type Database = {
           },
         ]
       }
+      group_members: {
+        Row: {
+          group_id: string
+          id: string
+          joined_at: string
+          member_id: string
+          role: string | null
+        }
+        Insert: {
+          group_id: string
+          id?: string
+          joined_at?: string
+          member_id: string
+          role?: string | null
+        }
+        Update: {
+          group_id?: string
+          id?: string
+          joined_at?: string
+          member_id?: string
+          role?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "group_members_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "group_members_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      groups: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean | null
+          leader_id: string | null
+          max_members: number | null
+          meeting_day: string | null
+          meeting_location: string | null
+          meeting_time: string | null
+          name: string
+          organization_id: string
+          type: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          leader_id?: string | null
+          max_members?: number | null
+          meeting_day?: string | null
+          meeting_location?: string | null
+          meeting_time?: string | null
+          name: string
+          organization_id: string
+          type?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          leader_id?: string | null
+          max_members?: number | null
+          meeting_day?: string | null
+          meeting_location?: string | null
+          meeting_time?: string | null
+          name?: string
+          organization_id?: string
+          type?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "groups_leader_id_fkey"
+            columns: ["leader_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "groups_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       invoice_items: {
         Row: {
           amount: number
@@ -341,6 +747,71 @@ export type Database = {
           },
           {
             foreignKeyName: "invoices_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      media: {
+        Row: {
+          created_at: string
+          description: string | null
+          duration: number | null
+          id: string
+          is_published: boolean | null
+          organization_id: string
+          recorded_date: string | null
+          series: string | null
+          speaker: string | null
+          tags: string[] | null
+          thumbnail_url: string | null
+          title: string
+          type: string | null
+          updated_at: string
+          url: string | null
+          views_count: number | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          duration?: number | null
+          id?: string
+          is_published?: boolean | null
+          organization_id: string
+          recorded_date?: string | null
+          series?: string | null
+          speaker?: string | null
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title: string
+          type?: string | null
+          updated_at?: string
+          url?: string | null
+          views_count?: number | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          duration?: number | null
+          id?: string
+          is_published?: boolean | null
+          organization_id?: string
+          recorded_date?: string | null
+          series?: string | null
+          speaker?: string | null
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title?: string
+          type?: string | null
+          updated_at?: string
+          url?: string | null
+          views_count?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "media_organization_id_fkey"
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
@@ -850,6 +1321,122 @@ export type Database = {
           },
         ]
       }
+      service_attendance: {
+        Row: {
+          children_count: number | null
+          created_at: string
+          id: string
+          men_count: number | null
+          notes: string | null
+          offering_amount: number | null
+          organization_id: string
+          service_date: string
+          service_id: string
+          total_attendees: number | null
+          visitors_count: number | null
+          women_count: number | null
+        }
+        Insert: {
+          children_count?: number | null
+          created_at?: string
+          id?: string
+          men_count?: number | null
+          notes?: string | null
+          offering_amount?: number | null
+          organization_id: string
+          service_date: string
+          service_id: string
+          total_attendees?: number | null
+          visitors_count?: number | null
+          women_count?: number | null
+        }
+        Update: {
+          children_count?: number | null
+          created_at?: string
+          id?: string
+          men_count?: number | null
+          notes?: string | null
+          offering_amount?: number | null
+          organization_id?: string
+          service_date?: string
+          service_id?: string
+          total_attendees?: number | null
+          visitors_count?: number | null
+          women_count?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_attendance_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "service_attendance_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      services: {
+        Row: {
+          created_at: string
+          day_of_week: string | null
+          description: string | null
+          end_time: string | null
+          id: string
+          is_active: boolean | null
+          is_recurring: boolean | null
+          location: string | null
+          name: string
+          organization_id: string
+          service_type: string | null
+          start_time: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          day_of_week?: string | null
+          description?: string | null
+          end_time?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_recurring?: boolean | null
+          location?: string | null
+          name: string
+          organization_id: string
+          service_type?: string | null
+          start_time?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          day_of_week?: string | null
+          description?: string | null
+          end_time?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_recurring?: boolean | null
+          location?: string | null
+          name?: string
+          organization_id?: string
+          service_type?: string | null
+          start_time?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "services_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       suppliers: {
         Row: {
           address: string | null
@@ -896,6 +1483,91 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "suppliers_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      visitors: {
+        Row: {
+          address: string | null
+          assigned_to: string | null
+          city: string | null
+          converted_to_member: boolean | null
+          created_at: string
+          email: string | null
+          first_name: string
+          follow_up_notes: string | null
+          follow_up_status: string | null
+          how_heard: string | null
+          id: string
+          last_name: string
+          member_id: string | null
+          organization_id: string
+          phone: string | null
+          prayer_request: string | null
+          updated_at: string
+          visit_date: string
+        }
+        Insert: {
+          address?: string | null
+          assigned_to?: string | null
+          city?: string | null
+          converted_to_member?: boolean | null
+          created_at?: string
+          email?: string | null
+          first_name: string
+          follow_up_notes?: string | null
+          follow_up_status?: string | null
+          how_heard?: string | null
+          id?: string
+          last_name: string
+          member_id?: string | null
+          organization_id: string
+          phone?: string | null
+          prayer_request?: string | null
+          updated_at?: string
+          visit_date?: string
+        }
+        Update: {
+          address?: string | null
+          assigned_to?: string | null
+          city?: string | null
+          converted_to_member?: boolean | null
+          created_at?: string
+          email?: string | null
+          first_name?: string
+          follow_up_notes?: string | null
+          follow_up_status?: string | null
+          how_heard?: string | null
+          id?: string
+          last_name?: string
+          member_id?: string | null
+          organization_id?: string
+          phone?: string | null
+          prayer_request?: string | null
+          updated_at?: string
+          visit_date?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "visitors_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "visitors_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "visitors_organization_id_fkey"
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
