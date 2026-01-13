@@ -21,7 +21,7 @@ type ViewMode = 'list' | 'form' | 'view';
 
 const FinancePage: React.FC<FinancePageProps> = ({ category }) => {
   const { t } = useTranslation();
-  const { organization, isLoading } = useOrganization();
+  const { organization, loading: isLoading } = useOrganization();
   
   const [activeTab, setActiveTab] = useState('dashboard');
   const [transactionView, setTransactionView] = useState<ViewMode>('list');
