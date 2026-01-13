@@ -1,0 +1,128 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "add": "Adicionar",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "export": "Exportar",
+    "import": "Importar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "submit": "Enviar",
+    "confirm": "Confirmar",
+    "success": "Sucesso",
+    "error": "Erro",
+    "warning": "Aviso",
+    "info": "Info"
+  },
+  "landing": {
+    "hero": {
+      "title": "Uma Plataforma para",
+      "titleHighlight": "Igrejas, Escolas e Organizações",
+      "subtitle": "DASYNK é a plataforma SaaS tudo-em-um que ajuda você a gerenciar sua comunidade, finanças e operações com facilidade.",
+      "cta": "Criar uma Conta",
+      "secondaryCta": "Saiba Mais"
+    },
+    "features": {
+      "title": "Tudo que Você Precisa",
+      "subtitle": "Ferramentas poderosas projetadas para suas necessidades específicas",
+      "website": {
+        "title": "Site Personalizado",
+        "description": "Crie seu próprio site com subdomínio automático"
+      },
+      "database": {
+        "title": "Banco de Dados de Membros",
+        "description": "Gerencie membros, alunos ou funcionários com perfis completos"
+      },
+      "finance": {
+        "title": "Gestão Financeira",
+        "description": "Acompanhe receitas, despesas e gere relatórios detalhados"
+      },
+      "communication": {
+        "title": "Comunicação",
+        "description": "Envie e-mails, SMS e gerencie anúncios"
+      },
+      "events": {
+        "title": "Gestão de Eventos",
+        "description": "Programe e gerencie eventos, inscrições e presença"
+      },
+      "security": {
+        "title": "Segurança Empresarial",
+        "description": "Controle de acesso baseado em funções e isolamento de dados"
+      }
+    },
+    "categories": {
+      "title": "Feito para Sua Comunidade",
+      "subtitle": "Escolha a solução que atenda às suas necessidades",
+      "church": {
+        "title": "Igrejas",
+        "description": "Gerencie membros, dízimos, departamentos e ministérios"
+      },
+      "school": {
+        "title": "Escolas",
+        "description": "Matrículas, notas, frequência e e-learning"
+      },
+      "organization": {
+        "title": "Organizações",
+        "description": "Projetos, voluntários, doações e relatórios"
+      }
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Serviço"
+    }
+  },
+  "auth": {
+    "login": "Entrar",
+    "signup": "Cadastrar",
+    "logout": "Sair",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirmar Senha",
+    "fullName": "Nome Completo",
+    "forgotPassword": "Esqueceu a senha?",
+    "noAccount": "Não tem conta?",
+    "hasAccount": "Já tem conta?",
+    "createAccount": "Criar Conta",
+    "welcomeBack": "Bem-vindo de Volta",
+    "signInToContinue": "Entre para continuar ao seu painel"
+  },
+  "welcome": {
+    "title": "Bem-vindo ao DASYNK!",
+    "subtitle": "Sua conta foi criada com sucesso. Vamos começar!",
+    "getStarted": "Começar"
+  },
+  "categorySelection": {
+    "title": "Que tipo de organização você é?",
+    "subtitle": "Selecione sua categoria para personalizar sua experiência",
+    "church": {
+      "title": "Igreja",
+      "description": "Gerencie membros, dízimos, departamentos, cultos e programas de crescimento espiritual"
+    },
+    "school": {
+      "title": "Escola",
+      "description": "Lide com matrículas, notas, frequência, e-learning e administração acadêmica"
+    },
+    "organization": {
+      "title": "Organização",
+      "description": "Coordene projetos, voluntários, doações, eventos e operações organizacionais"
+    },
+    "continue": "Continuar com {{category}}"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "overview": "Visão Geral",
+    "recentActivity": "Atividade Recente",
+    "quickActions": "Ações Rápidas",
+    "statistics": "Estatísticas"
+  },
+  "sidebar": {
+    "dashboard": "Painel",
+    "settings": "Configurações"
+  }
+}

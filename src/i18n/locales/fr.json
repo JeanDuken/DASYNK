@@ -1,0 +1,187 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "export": "Exporter",
+    "import": "Importer",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Soumettre",
+    "confirm": "Confirmer",
+    "success": "Succès",
+    "error": "Erreur",
+    "warning": "Avertissement",
+    "info": "Info"
+  },
+  "landing": {
+    "hero": {
+      "title": "Une Plateforme pour",
+      "titleHighlight": "Églises, Écoles et Organisations",
+      "subtitle": "DASYNK est la plateforme SaaS tout-en-un qui vous aide à gérer votre communauté, vos finances et vos opérations en toute simplicité.",
+      "cta": "Créer un Compte",
+      "secondaryCta": "En Savoir Plus"
+    },
+    "features": {
+      "title": "Tout Ce Dont Vous Avez Besoin",
+      "subtitle": "Des outils puissants conçus pour vos besoins spécifiques",
+      "website": {
+        "title": "Site Web Personnalisé",
+        "description": "Créez votre propre site web avec sous-domaine automatique"
+      },
+      "database": {
+        "title": "Base de Données Membres",
+        "description": "Gérez membres, étudiants ou personnel avec des profils complets"
+      },
+      "finance": {
+        "title": "Gestion Financière",
+        "description": "Suivez revenus, dépenses et générez des rapports détaillés"
+      },
+      "communication": {
+        "title": "Communication",
+        "description": "Envoyez emails, SMS et gérez les annonces"
+      },
+      "events": {
+        "title": "Gestion d'Événements",
+        "description": "Planifiez et gérez événements, inscriptions et présences"
+      },
+      "security": {
+        "title": "Sécurité Enterprise",
+        "description": "Contrôle d'accès basé sur les rôles et isolation des données"
+      }
+    },
+    "categories": {
+      "title": "Conçu pour Votre Communauté",
+      "subtitle": "Choisissez la solution adaptée à vos besoins",
+      "church": {
+        "title": "Églises",
+        "description": "Gérez membres, dîmes, départements et ministères"
+      },
+      "school": {
+        "title": "Écoles",
+        "description": "Inscriptions, notes, présences et e-learning"
+      },
+      "organization": {
+        "title": "Organisations",
+        "description": "Projets, bénévoles, dons et rapports"
+      }
+    },
+    "footer": {
+      "rights": "Tous droits réservés",
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation"
+    }
+  },
+  "auth": {
+    "login": "Connexion",
+    "signup": "Inscription",
+    "logout": "Déconnexion",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "fullName": "Nom complet",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "hasAccount": "Vous avez déjà un compte ?",
+    "createAccount": "Créer un Compte",
+    "welcomeBack": "Bienvenue",
+    "signInToContinue": "Connectez-vous pour accéder à votre tableau de bord",
+    "createYourAccount": "Créez Votre Compte",
+    "joinDasynk": "Rejoignez DASYNK et commencez à gérer votre communauté",
+    "emailRequired": "L'email est requis",
+    "passwordRequired": "Le mot de passe est requis",
+    "passwordMinLength": "Le mot de passe doit contenir au moins 6 caractères",
+    "invalidEmail": "Adresse email invalide"
+  },
+  "welcome": {
+    "title": "Bienvenue sur DASYNK !",
+    "subtitle": "Votre compte a été créé avec succès. Commençons !",
+    "getStarted": "Commencer"
+  },
+  "categorySelection": {
+    "title": "Quel type d'organisation êtes-vous ?",
+    "subtitle": "Sélectionnez votre catégorie pour personnaliser votre expérience",
+    "church": {
+      "title": "Église",
+      "description": "Gérez membres, dîmes, départements, cultes et programmes de croissance spirituelle"
+    },
+    "school": {
+      "title": "École",
+      "description": "Gérez inscriptions, notes, présences, e-learning et administration académique"
+    },
+    "organization": {
+      "title": "Organisation",
+      "description": "Coordonnez projets, bénévoles, dons, événements et opérations organisationnelles"
+    },
+    "continue": "Continuer avec {{category}}"
+  },
+  "dashboard": {
+    "title": "Tableau de Bord",
+    "overview": "Vue d'ensemble",
+    "recentActivity": "Activité Récente",
+    "quickActions": "Actions Rapides",
+    "statistics": "Statistiques"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de Bord",
+    "settings": "Paramètres"
+  },
+  "school": {
+    "sidebar": {
+      "dashboard": "Tableau de Bord",
+      "students": "Élèves et Admissions",
+      "classes": "Classes et Enseignement",
+      "courses": "Cours et E-Learning",
+      "grades": "Notes et Examens",
+      "finance": "Finance et Comptabilité",
+      "staff": "Personnel et Administration",
+      "attendance": "Présences et Discipline",
+      "events": "Événements",
+      "settings": "Paramètres"
+    }
+  },
+  "church": {
+    "sidebar": {
+      "dashboard": "Tableau de Bord",
+      "members": "Membres",
+      "groups": "Groupes et Départements",
+      "services": "Services et Cultes",
+      "media": "Médias et Streaming",
+      "finance": "Dons et Finances",
+      "discipleship": "Discipolat",
+      "visitors": "Visiteurs",
+      "events": "Événements d'Église",
+      "communication": "Communication",
+      "settings": "Paramètres"
+    }
+  },
+  "organization": {
+    "sidebar": {
+      "dashboard": "Tableau de Bord",
+      "members": "Membres et Adhésions",
+      "projects": "Projets et Programmes",
+      "volunteers": "Bénévoles et Équipes",
+      "finance": "Finance et Comptabilité",
+      "documents": "Documents",
+      "communication": "Communication",
+      "events": "Événements et Activités",
+      "inventory": "Inventaire",
+      "settings": "Paramètres"
+    }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "general": "Général",
+    "organization": "Info Organisation",
+    "branding": "Image de Marque",
+    "payments": "Paramètres de Paiement",
+    "roles": "Rôles et Permissions",
+    "import": "Import / Export",
+    "security": "Sécurité"
+  }
+}

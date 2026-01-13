@@ -1,0 +1,130 @@
+{
+  "common": {
+    "loading": "Ap chaje...",
+    "save": "Anrejistre",
+    "cancel": "Anile",
+    "delete": "Efase",
+    "edit": "Modifye",
+    "add": "Ajoute",
+    "search": "Chèche",
+    "filter": "Filtre",
+    "export": "Ekspòte",
+    "import": "Enpòte",
+    "back": "Retounen",
+    "next": "Pwochen",
+    "submit": "Soumèt",
+    "confirm": "Konfime",
+    "success": "Siksè",
+    "error": "Erè",
+    "warning": "Avètisman",
+    "info": "Enfòmasyon"
+  },
+  "landing": {
+    "hero": {
+      "title": "Yon Platfòm pou",
+      "titleHighlight": "Legliz, Lekòl ak Òganizasyon",
+      "subtitle": "DASYNK se platfòm SaaS tout-an-yon ki ede w jere kominote w, finans ou ak operasyon w fasil.",
+      "cta": "Kreye yon Kont",
+      "secondaryCta": "Aprann Plis"
+    },
+    "features": {
+      "title": "Tout Sa Ou Bezwen",
+      "subtitle": "Zouti pwisan ki fèt pou bezwen espesifik ou",
+      "website": {
+        "title": "Sitwèb Pèsonalize",
+        "description": "Kreye pwòp sitwèb ou ak sou-domèn otomatik"
+      },
+      "database": {
+        "title": "Baz Done Manm",
+        "description": "Jere manm, elèv oswa anplwaye ak pwofil konplè"
+      },
+      "finance": {
+        "title": "Jesyon Finansye",
+        "description": "Swiv revni, depans epi jenere rapò detaye"
+      },
+      "communication": {
+        "title": "Kominikasyon",
+        "description": "Voye imèl, SMS epi jere anons"
+      },
+      "events": {
+        "title": "Jesyon Evènman",
+        "description": "Planifye ak jere evènman, enskripsyon ak prezans"
+      },
+      "security": {
+        "title": "Sekirite Antrepriz",
+        "description": "Kontwòl aksè baze sou wòl ak izolasyon done"
+      }
+    },
+    "categories": {
+      "title": "Fèt pou Kominote Ou",
+      "subtitle": "Chwazi solisyon ki adapte ak bezwen ou",
+      "church": {
+        "title": "Legliz",
+        "description": "Jere manm, dim, depatman ak ministè"
+      },
+      "school": {
+        "title": "Lekòl",
+        "description": "Enskripsyon elèv, nòt, prezans ak e-learning"
+      },
+      "organization": {
+        "title": "Òganizasyon",
+        "description": "Pwojè, volontè, don ak rapò"
+      }
+    },
+    "footer": {
+      "rights": "Tout dwa rezève",
+      "privacy": "Politik Konfidansyalite",
+      "terms": "Kondisyon Sèvis"
+    }
+  },
+  "auth": {
+    "login": "Konekte",
+    "signup": "Enskri",
+    "logout": "Dekonekte",
+    "email": "Imèl",
+    "password": "Modpas",
+    "confirmPassword": "Konfime modpas",
+    "fullName": "Non konplè",
+    "forgotPassword": "Bliye modpas?",
+    "noAccount": "Ou pa gen kont?",
+    "hasAccount": "Ou gen kont deja?",
+    "createAccount": "Kreye Kont",
+    "welcomeBack": "Byenveni Ankò",
+    "signInToContinue": "Konekte pou kontinye nan tablo bò w",
+    "createYourAccount": "Kreye Kont Ou",
+    "joinDasynk": "Antre nan DASYNK epi kòmanse jere kominote w"
+  },
+  "welcome": {
+    "title": "Byenveni nan DASYNK!",
+    "subtitle": "Kont ou kreye avèk siksè. Ann kòmanse!",
+    "getStarted": "Kòmanse"
+  },
+  "categorySelection": {
+    "title": "Ki kalite òganizasyon ou ye?",
+    "subtitle": "Chwazi kategori ou pou pèsonalize eksperyans ou",
+    "church": {
+      "title": "Legliz",
+      "description": "Jere manm, dim, depatman, sèvis adorasyon ak pwogram kwasans espirityèl"
+    },
+    "school": {
+      "title": "Lekòl",
+      "description": "Jere enskripsyon elèv, nòt, prezans, e-learning ak administrasyon akademik"
+    },
+    "organization": {
+      "title": "Òganizasyon",
+      "description": "Kowòdone pwojè, volontè, don, evènman ak operasyon òganizasyonèl"
+    },
+    "continue": "Kontinye ak {{category}}"
+  },
+  "dashboard": {
+    "title": "Tablo Bò",
+    "overview": "Apèsi",
+    "recentActivity": "Aktivite Resan",
+    "quickActions": "Aksyon Rapid",
+    "statistics": "Estatistik"
+  },
+  "sidebar": {
+    "dashboard": "Tablo Bò",
+    "settings": "Paramèt"
+  }
+}
