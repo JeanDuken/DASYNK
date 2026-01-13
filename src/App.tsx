@@ -19,6 +19,7 @@ import SchoolDashboard from "./pages/dashboard/school/SchoolDashboard";
 import ChurchDashboard from "./pages/dashboard/church/ChurchDashboard";
 import OrganizationDashboard from "./pages/dashboard/organization/OrganizationDashboard";
 import MembersPage from "./pages/dashboard/MembersPage";
+import FinancePage from "./pages/dashboard/FinancePage";
 
 const queryClient = new QueryClient();
 
@@ -51,7 +52,7 @@ const App = () => (
               <Route path="classes" element={<div className="p-4">Classes Page - Coming Soon</div>} />
               <Route path="courses" element={<div className="p-4">Courses Page - Coming Soon</div>} />
               <Route path="grades" element={<div className="p-4">Grades Page - Coming Soon</div>} />
-              <Route path="finance" element={<div className="p-4">Finance Page - Coming Soon</div>} />
+              <Route path="finance" element={<FinancePage category="school" />} />
               <Route path="staff" element={<div className="p-4">Staff Page - Coming Soon</div>} />
               <Route path="attendance" element={<div className="p-4">Attendance Page - Coming Soon</div>} />
               <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
@@ -67,7 +68,7 @@ const App = () => (
               <Route path="groups" element={<div className="p-4">Groups Page - Coming Soon</div>} />
               <Route path="services" element={<div className="p-4">Services Page - Coming Soon</div>} />
               <Route path="media" element={<div className="p-4">Media Page - Coming Soon</div>} />
-              <Route path="finance" element={<div className="p-4">Finance Page - Coming Soon</div>} />
+              <Route path="finance" element={<FinancePage category="church" />} />
               <Route path="discipleship" element={<div className="p-4">Discipleship Page - Coming Soon</div>} />
               <Route path="visitors" element={<div className="p-4">Visitors Page - Coming Soon</div>} />
               <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
@@ -83,7 +84,7 @@ const App = () => (
               <Route path="members" element={<MembersPage category="organization" />} />
               <Route path="projects" element={<div className="p-4">Projects Page - Coming Soon</div>} />
               <Route path="volunteers" element={<div className="p-4">Volunteers Page - Coming Soon</div>} />
-              <Route path="finance" element={<div className="p-4">Finance Page - Coming Soon</div>} />
+              <Route path="finance" element={<FinancePage category="organization" />} />
               <Route path="documents" element={<div className="p-4">Documents Page - Coming Soon</div>} />
               <Route path="communication" element={<div className="p-4">Communication Page - Coming Soon</div>} />
               <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />

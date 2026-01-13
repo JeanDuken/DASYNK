@@ -327,7 +327,7 @@ export const useCreateInvoice = () => {
   const { user } = useAuth();
   
   return useMutation({
-    mutationFn: async ({ items, ...invoice }: Omit<Invoice, 'id' | 'created_at' | 'updated_at' | 'member'> & { items: Omit<InvoiceItem, 'id' | 'invoice_id' | 'created_at'>[] }) => {
+    mutationFn: async ({ items, ...invoice }: Omit<Invoice, 'id' | 'created_at' | 'updated_at' | 'member' | 'items'> & { items: Omit<InvoiceItem, 'id' | 'invoice_id' | 'created_at'>[] }) => {
       // Create invoice
       const { data: newInvoice, error: invoiceError } = await supabase
         .from('invoices')
