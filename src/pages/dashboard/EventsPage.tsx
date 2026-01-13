@@ -1,48 +1,77 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { useOrganization } from '@/hooks/useOrganization';
+import { useEvents, EventInsert } from '@/hooks/useEvents';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Switch } from '@/components/ui/switch';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from '@/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Plus, Search, Calendar, Clock, MapPin, Users, CalendarDays } from 'lucide-react';
-
-interface Event {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  location: string;
-  type: string;
-  attendees: number;
-  maxAttendees: number;
-  status: 'upcoming' | 'ongoing' | 'completed' | 'cancelled';
-}
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
+import { Plus, Search, Calendar, Clock, MapPin, Users, CalendarDays, Edit, Trash2 } from 'lucide-react';
 
 interface EventsPageProps {
   category: 'school' | 'church' | 'organization';
 }
 
-const mockEvents: Event[] = [
-  { id: '1', title: 'Réunion Parents-Professeurs', description: 'Rencontre trimestrielle avec les parents', date: '2024-01-20', time: '18:00', location: 'Salle des fêtes', type: 'Réunion', attendees: 45, maxAttendees: 100, status: 'upcoming' },
-  { id: '2', title: 'Fête de l\'École', description: 'Célébration annuelle de fin d\'année', date: '2024-06-28', time: '14:00', location: 'Cour de l\'école', type: 'Fête', attendees: 200, maxAttendees: 300, status: 'upcoming' },
-  { id: '3', title: 'Sortie au Musée', description: 'Visite pédagogique pour les 6ème', date: '2024-02-15', time: '09:00', location: 'Musée d\'Histoire', type: 'Sortie', attendees: 35, maxAttendees: 40, status: 'upcoming' },
-  { id: '4', title: 'Conseil de Classe', description: 'Conseil du 1er trimestre - 6ème A', date: '2024-01-10', time: '17:00', location: 'Salle de réunion', type: 'Réunion', attendees: 12, maxAttendees: 15, status: 'completed' },
-];
-
 const EventsPage = ({ category }: EventsPageProps) => {
   const { t } = useTranslation();
-  const { organization, loading } = useOrganization();
+  const { events, isLoading, createEvent, updateEvent, deleteEvent } = useEvents();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState('upcoming');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<typeof events[0] | null>(null);
+  const [formData, setFormData] = useState<EventInsert>({
+    title: '',
+    description: '',
+    event_type: 'general',
+    start_date: new Date().toISOString().slice(0, 16),
+    end_date: '',
+    location: '',
+    max_attendees: undefined,
+    registration_required: false,
+    status: 'upcoming',
+  });
 
-  if (loading) {
-    return <div className="flex items-center justify-center h-64">{t('common.loading')}</div>;
-  }
+  const resetForm = () => {
+    setFormData({
+      title: '', description: '', event_type: 'general',
+      start_date: new Date().toISOString().slice(0, 16),
+      end_date: '', location: '', max_attendees: undefined, registration_required: false, status: 'upcoming',
+    });
+    setEditingEvent(null);
+  };
+
+  const handleSubmit = async () => {
+    if (editingEvent) {
+      await updateEvent.mutateAsync({ id: editingEvent.id, ...formData });
+    } else {
+      await createEvent.mutateAsync(formData);
+    }
+    setIsDialogOpen(false);
+    resetForm();
+  };
+
+  const handleEdit = (event: typeof events[0]) => {
+    setEditingEvent(event);
+    setFormData({
+      title: event.title,
+      description: event.description || '',
+      event_type: event.event_type || 'general',
+      start_date: event.start_date.slice(0, 16),
+      end_date: event.end_date?.slice(0, 16) || '',
+      location: event.location || '',
+      max_attendees: event.max_attendees || undefined,
+      registration_required: event.registration_required || false,
+      status: event.status || 'upcoming',
+    });
+    setIsDialogOpen(true);
+  };
 
   const getTitle = () => {
     switch (category) {
@@ -52,44 +81,100 @@ const EventsPage = ({ category }: EventsPageProps) => {
     }
   };
 
-  const filteredEvents = mockEvents.filter(e => {
+  const eventTypes = [
+    { value: 'general', label: 'Général' },
+    { value: 'meeting', label: 'Réunion' },
+    { value: 'celebration', label: 'Célébration' },
+    { value: 'training', label: 'Formation' },
+    { value: 'outreach', label: 'Évangélisation' },
+    { value: 'conference', label: 'Conférence' },
+    { value: 'retreat', label: 'Retraite' },
+    { value: 'other', label: 'Autre' },
+  ];
+
+  const filteredEvents = events.filter(e => {
     const matchesSearch = e.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesTab = activeTab === 'all' || e.status === activeTab;
-    return matchesSearch && matchesTab;
+    const now = new Date();
+    const eventDate = new Date(e.start_date);
+    
+    if (activeTab === 'upcoming') return matchesSearch && eventDate >= now && e.status !== 'cancelled';
+    if (activeTab === 'completed') return matchesSearch && (eventDate < now || e.status === 'completed');
+    if (activeTab === 'cancelled') return matchesSearch && e.status === 'cancelled';
+    return matchesSearch;
   });
 
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case 'upcoming': return <Badge className="bg-blue-100 text-blue-800">À venir</Badge>;
-      case 'ongoing': return <Badge className="bg-green-100 text-green-800">En cours</Badge>;
-      case 'completed': return <Badge className="bg-gray-100 text-gray-800">Terminé</Badge>;
-      case 'cancelled': return <Badge className="bg-red-100 text-red-800">Annulé</Badge>;
-      default: return null;
-    }
+  const getStatusBadge = (status: string | null, startDate: string) => {
+    const now = new Date();
+    const eventDate = new Date(startDate);
+    
+    if (status === 'cancelled') return <Badge variant="destructive">Annulé</Badge>;
+    if (eventDate < now) return <Badge variant="secondary">Terminé</Badge>;
+    return <Badge className="bg-blue-100 text-blue-800">À venir</Badge>;
   };
 
+  if (isLoading) {
+    return <div className="flex items-center justify-center h-64">{t('common.loading')}</div>;
+  }
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="space-y-6"
-    >
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-2xl font-bold">{getTitle()}</h1>
-        <Dialog>
+        <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetForm(); }}>
           <DialogTrigger asChild>
-            <Button>
-              <Plus className="mr-2 h-4 w-4" />
-              Créer un Événement
-            </Button>
+            <Button><Plus className="mr-2 h-4 w-4" />Créer un Événement</Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>Créer un Nouvel Événement</DialogTitle>
+              <DialogTitle>{editingEvent ? 'Modifier l\'Événement' : 'Créer un Événement'}</DialogTitle>
             </DialogHeader>
             <div className="space-y-4 pt-4">
-              <p className="text-muted-foreground">Formulaire de création d'événement à venir...</p>
+              <div className="space-y-2">
+                <Label>Titre *</Label>
+                <Input value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} placeholder="Ex: Conférence annuelle" />
+              </div>
+              <div className="space-y-2">
+                <Label>Type d'événement</Label>
+                <Select value={formData.event_type} onValueChange={(v) => setFormData({ ...formData, event_type: v })}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    {eventTypes.map(t => <SelectItem key={t.value} value={t.value}>{t.label}</SelectItem>)}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label>Description</Label>
+                <Textarea value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} placeholder="Description de l'événement..." />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Date/Heure de début *</Label>
+                  <Input type="datetime-local" value={formData.start_date} onChange={(e) => setFormData({ ...formData, start_date: e.target.value })} />
+                </div>
+                <div className="space-y-2">
+                  <Label>Date/Heure de fin</Label>
+                  <Input type="datetime-local" value={formData.end_date} onChange={(e) => setFormData({ ...formData, end_date: e.target.value })} />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label>Lieu</Label>
+                <Input value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} placeholder="Ex: Salle principale" />
+              </div>
+              <div className="space-y-2">
+                <Label>Nombre max de participants</Label>
+                <Input type="number" value={formData.max_attendees || ''} onChange={(e) => setFormData({ ...formData, max_attendees: parseInt(e.target.value) || undefined })} placeholder="Illimité" />
+              </div>
+              <div className="flex items-center justify-between">
+                <Label>Inscription requise</Label>
+                <Switch checked={formData.registration_required} onCheckedChange={(c) => setFormData({ ...formData, registration_required: c })} />
+              </div>
             </div>
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setIsDialogOpen(false)}>Annuler</Button>
+              <Button onClick={handleSubmit} disabled={!formData.title || !formData.start_date}>
+                {editingEvent ? 'Modifier' : 'Créer'}
+              </Button>
+            </DialogFooter>
           </DialogContent>
         </Dialog>
       </div>
@@ -97,8 +182,8 @@ const EventsPage = ({ category }: EventsPageProps) => {
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
           <TabsTrigger value="upcoming">À venir</TabsTrigger>
-          <TabsTrigger value="ongoing">En cours</TabsTrigger>
           <TabsTrigger value="completed">Terminés</TabsTrigger>
+          <TabsTrigger value="cancelled">Annulés</TabsTrigger>
           <TabsTrigger value="all">Tous</TabsTrigger>
         </TabsList>
 
@@ -106,55 +191,30 @@ const EventsPage = ({ category }: EventsPageProps) => {
           <div className="flex gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Rechercher un événement..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
+              <Input placeholder="Rechercher un événement..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-10" />
             </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-4">
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Événements</CardTitle>
-                <CalendarDays className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{mockEvents.length}</div>
-              </CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm">Total Événements</CardTitle></CardHeader>
+              <CardContent><div className="text-2xl font-bold">{events.length}</div></CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">À Venir</CardTitle>
-                <Calendar className="h-4 w-4 text-blue-600" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-blue-600">
-                  {mockEvents.filter(e => e.status === 'upcoming').length}
-                </div>
-              </CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm">À Venir</CardTitle></CardHeader>
+              <CardContent><div className="text-2xl font-bold text-blue-600">
+                {events.filter(e => new Date(e.start_date) >= new Date() && e.status !== 'cancelled').length}
+              </div></CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Participants</CardTitle>
-                <Users className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">
-                  {mockEvents.reduce((acc, e) => acc + e.attendees, 0)}
-                </div>
-              </CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm">Inscriptions</CardTitle></CardHeader>
+              <CardContent><div className="text-2xl font-bold">{events.reduce((acc, e) => acc + (e.registration_count || 0), 0)}</div></CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Ce Mois</CardTitle>
-                <Calendar className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">3</div>
-              </CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm">Ce Mois</CardTitle></CardHeader>
+              <CardContent><div className="text-2xl font-bold">
+                {events.filter(e => new Date(e.start_date).getMonth() === new Date().getMonth()).length}
+              </div></CardContent>
             </Card>
           </div>
 
@@ -163,32 +223,49 @@ const EventsPage = ({ category }: EventsPageProps) => {
               <Card key={event.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex justify-between items-start">
-                    <Badge variant="outline">{event.type}</Badge>
-                    {getStatusBadge(event.status)}
+                    <Badge variant="outline">{eventTypes.find(t => t.value === event.event_type)?.label || event.event_type}</Badge>
+                    <div className="flex items-center gap-1">
+                      {getStatusBadge(event.status, event.start_date)}
+                      <Button variant="ghost" size="icon" onClick={() => handleEdit(event)}><Edit className="h-4 w-4" /></Button>
+                      <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                          <Button variant="ghost" size="icon"><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogHeader>
+                            <AlertDialogTitle>Supprimer cet événement ?</AlertDialogTitle>
+                            <AlertDialogDescription>Cette action est irréversible.</AlertDialogDescription>
+                          </AlertDialogHeader>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel>Annuler</AlertDialogCancel>
+                            <AlertDialogAction onClick={() => deleteEvent.mutate(event.id)}>Supprimer</AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
+                    </div>
                   </div>
                   <CardTitle className="text-lg mt-2">{event.title}</CardTitle>
-                  <CardDescription>{event.description}</CardDescription>
+                  {event.description && <CardDescription>{event.description}</CardDescription>}
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Calendar className="h-4 w-4" />
-                    <span>{new Date(event.date).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    <span>{new Date(event.start_date).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Clock className="h-4 w-4" />
-                    <span>{event.time}</span>
+                    <span>{new Date(event.start_date).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
-                    <span>{event.location}</span>
-                  </div>
+                  {event.location && (
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <MapPin className="h-4 w-4" />
+                      <span>{event.location}</span>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Users className="h-4 w-4" />
-                    <span>{event.attendees} / {event.maxAttendees} participants</span>
+                    <span>{event.registration_count || 0}{event.max_attendees ? ` / ${event.max_attendees}` : ''} inscrits</span>
                   </div>
-                  <Button variant="outline" className="w-full mt-2">
-                    Voir les détails
-                  </Button>
                 </CardContent>
               </Card>
             ))}
