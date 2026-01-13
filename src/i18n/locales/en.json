@@ -214,5 +214,13 @@
     "roles": "Roles & Permissions",
     "import": "Import / Export",
     "security": "Security"
+  },
+  "organizations": {
+    "title": "Organizations",
+    "search": "Search organizations...",
+    "noResults": "No organizations found.",
+    "createNew": "Create new organization",
+    "switchTo": "Switch to",
+    "current": "Current organization"
   }
 }

@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { OrganizationProvider } from "@/contexts/OrganizationContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import '@/i18n';
@@ -26,78 +27,80 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<Landing />} />
-            <Route path="/auth" element={<Auth />} />
+      <OrganizationProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              {/* Public routes */}
+              <Route path="/" element={<Landing />} />
+              <Route path="/auth" element={<Auth />} />
 
-            {/* Protected onboarding routes */}
-            <Route path="/welcome" element={
-              <ProtectedRoute><Welcome /></ProtectedRoute>
-            } />
-            <Route path="/select-category" element={
-              <ProtectedRoute><SelectCategory /></ProtectedRoute>
-            } />
+              {/* Protected onboarding routes */}
+              <Route path="/welcome" element={
+                <ProtectedRoute><Welcome /></ProtectedRoute>
+              } />
+              <Route path="/select-category" element={
+                <ProtectedRoute><SelectCategory /></ProtectedRoute>
+              } />
 
-            {/* School Dashboard */}
-            <Route path="/dashboard/school" element={
-              <ProtectedRoute><DashboardLayout category="school" /></ProtectedRoute>
-            }>
-              <Route index element={<SchoolDashboard />} />
-              <Route path="students" element={<MembersPage category="school" />} />
-              <Route path="classes" element={<div className="p-4">Classes Page - Coming Soon</div>} />
-              <Route path="courses" element={<div className="p-4">Courses Page - Coming Soon</div>} />
-              <Route path="grades" element={<div className="p-4">Grades Page - Coming Soon</div>} />
-              <Route path="finance" element={<FinancePage category="school" />} />
-              <Route path="staff" element={<div className="p-4">Staff Page - Coming Soon</div>} />
-              <Route path="attendance" element={<div className="p-4">Attendance Page - Coming Soon</div>} />
-              <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
-              <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
-            </Route>
+              {/* School Dashboard */}
+              <Route path="/dashboard/school" element={
+                <ProtectedRoute><DashboardLayout category="school" /></ProtectedRoute>
+              }>
+                <Route index element={<SchoolDashboard />} />
+                <Route path="students" element={<MembersPage category="school" />} />
+                <Route path="classes" element={<div className="p-4">Classes Page - Coming Soon</div>} />
+                <Route path="courses" element={<div className="p-4">Courses Page - Coming Soon</div>} />
+                <Route path="grades" element={<div className="p-4">Grades Page - Coming Soon</div>} />
+                <Route path="finance" element={<FinancePage category="school" />} />
+                <Route path="staff" element={<div className="p-4">Staff Page - Coming Soon</div>} />
+                <Route path="attendance" element={<div className="p-4">Attendance Page - Coming Soon</div>} />
+                <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
+                <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
+              </Route>
 
-            {/* Church Dashboard */}
-            <Route path="/dashboard/church" element={
-              <ProtectedRoute><DashboardLayout category="church" /></ProtectedRoute>
-            }>
-              <Route index element={<ChurchDashboard />} />
-              <Route path="members" element={<MembersPage category="church" />} />
-              <Route path="groups" element={<div className="p-4">Groups Page - Coming Soon</div>} />
-              <Route path="services" element={<div className="p-4">Services Page - Coming Soon</div>} />
-              <Route path="media" element={<div className="p-4">Media Page - Coming Soon</div>} />
-              <Route path="finance" element={<FinancePage category="church" />} />
-              <Route path="discipleship" element={<div className="p-4">Discipleship Page - Coming Soon</div>} />
-              <Route path="visitors" element={<div className="p-4">Visitors Page - Coming Soon</div>} />
-              <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
-              <Route path="communication" element={<div className="p-4">Communication Page - Coming Soon</div>} />
-              <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
-            </Route>
+              {/* Church Dashboard */}
+              <Route path="/dashboard/church" element={
+                <ProtectedRoute><DashboardLayout category="church" /></ProtectedRoute>
+              }>
+                <Route index element={<ChurchDashboard />} />
+                <Route path="members" element={<MembersPage category="church" />} />
+                <Route path="groups" element={<div className="p-4">Groups Page - Coming Soon</div>} />
+                <Route path="services" element={<div className="p-4">Services Page - Coming Soon</div>} />
+                <Route path="media" element={<div className="p-4">Media Page - Coming Soon</div>} />
+                <Route path="finance" element={<FinancePage category="church" />} />
+                <Route path="discipleship" element={<div className="p-4">Discipleship Page - Coming Soon</div>} />
+                <Route path="visitors" element={<div className="p-4">Visitors Page - Coming Soon</div>} />
+                <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
+                <Route path="communication" element={<div className="p-4">Communication Page - Coming Soon</div>} />
+                <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
+              </Route>
 
-            {/* Organization Dashboard */}
-            <Route path="/dashboard/organization" element={
-              <ProtectedRoute><DashboardLayout category="organization" /></ProtectedRoute>
-            }>
-              <Route index element={<OrganizationDashboard />} />
-              <Route path="members" element={<MembersPage category="organization" />} />
-              <Route path="projects" element={<div className="p-4">Projects Page - Coming Soon</div>} />
-              <Route path="volunteers" element={<div className="p-4">Volunteers Page - Coming Soon</div>} />
-              <Route path="finance" element={<FinancePage category="organization" />} />
-              <Route path="documents" element={<div className="p-4">Documents Page - Coming Soon</div>} />
-              <Route path="communication" element={<div className="p-4">Communication Page - Coming Soon</div>} />
-              <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
-              <Route path="inventory" element={<div className="p-4">Inventory Page - Coming Soon</div>} />
-              <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
-            </Route>
+              {/* Organization Dashboard */}
+              <Route path="/dashboard/organization" element={
+                <ProtectedRoute><DashboardLayout category="organization" /></ProtectedRoute>
+              }>
+                <Route index element={<OrganizationDashboard />} />
+                <Route path="members" element={<MembersPage category="organization" />} />
+                <Route path="projects" element={<div className="p-4">Projects Page - Coming Soon</div>} />
+                <Route path="volunteers" element={<div className="p-4">Volunteers Page - Coming Soon</div>} />
+                <Route path="finance" element={<FinancePage category="organization" />} />
+                <Route path="documents" element={<div className="p-4">Documents Page - Coming Soon</div>} />
+                <Route path="communication" element={<div className="p-4">Communication Page - Coming Soon</div>} />
+                <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
+                <Route path="inventory" element={<div className="p-4">Inventory Page - Coming Soon</div>} />
+                <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
+              </Route>
 
-            {/* Fallback routes */}
-            <Route path="/dashboard" element={<Navigate to="/select-category" replace />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+              {/* Fallback routes */}
+              <Route path="/dashboard" element={<Navigate to="/select-category" replace />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </OrganizationProvider>
     </AuthProvider>
   </QueryClientProvider>
 );
