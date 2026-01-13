@@ -5,7 +5,6 @@ import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { getMenuItems, type MenuItem } from './menuItems';
-import { OrganizationSwitcher } from './OrganizationSwitcher';
 
 interface SidebarProps {
   category: 'church' | 'school' | 'organization';
@@ -80,14 +79,10 @@ export const Sidebar = ({ category, isOpen, mobileOpen, onMobileClose }: Sidebar
             {isOpen && (
               <div>
                 <h1 className="font-bold text-lg">DASYNK</h1>
+                <p className="text-xs text-muted-foreground">{categoryLabels[category]}</p>
               </div>
             )}
           </div>
-        </div>
-
-        {/* Organization Switcher */}
-        <div className="px-3 py-3 border-b">
-          <OrganizationSwitcher collapsed={!isOpen} />
         </div>
 
         {/* Navigation */}
@@ -116,6 +111,7 @@ export const Sidebar = ({ category, isOpen, mobileOpen, onMobileClose }: Sidebar
             </div>
             <div>
               <h1 className="font-bold text-lg">DASYNK</h1>
+              <p className="text-xs text-muted-foreground">{categoryLabels[category]}</p>
             </div>
           </div>
           <Button variant="ghost" size="icon" onClick={onMobileClose}>
@@ -123,13 +119,8 @@ export const Sidebar = ({ category, isOpen, mobileOpen, onMobileClose }: Sidebar
           </Button>
         </div>
 
-        {/* Organization Switcher */}
-        <div className="px-3 py-3 border-b">
-          <OrganizationSwitcher />
-        </div>
-
         {/* Navigation */}
-        <ScrollArea className="h-[calc(100vh-8rem)] py-4">
+        <ScrollArea className="h-[calc(100vh-4rem)] py-4">
           <nav className="px-3 space-y-1">
             {menuItems.map((item) => renderMenuItem(item, `/dashboard/${category}`))}
           </nav>
