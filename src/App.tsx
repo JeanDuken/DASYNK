@@ -21,6 +21,31 @@ import OrganizationDashboard from "./pages/dashboard/organization/OrganizationDa
 import MembersPage from "./pages/dashboard/MembersPage";
 import FinancePage from "./pages/dashboard/FinancePage";
 
+// School specific pages
+import ClassesPage from "./pages/dashboard/ClassesPage";
+import CoursesPage from "./pages/dashboard/CoursesPage";
+import GradesPage from "./pages/dashboard/GradesPage";
+import StaffPage from "./pages/dashboard/StaffPage";
+
+// Church specific pages
+import GroupsPage from "./pages/dashboard/GroupsPage";
+import ServicesPage from "./pages/dashboard/ServicesPage";
+import MediaPage from "./pages/dashboard/MediaPage";
+import DiscipleshipPage from "./pages/dashboard/DiscipleshipPage";
+import VisitorsPage from "./pages/dashboard/VisitorsPage";
+
+// Organization specific pages
+import ProjectsPage from "./pages/dashboard/ProjectsPage";
+import VolunteersPage from "./pages/dashboard/VolunteersPage";
+import DocumentsPage from "./pages/dashboard/DocumentsPage";
+import InventoryPage from "./pages/dashboard/InventoryPage";
+
+// Shared pages
+import AttendancePage from "./pages/dashboard/AttendancePage";
+import EventsPage from "./pages/dashboard/EventsPage";
+import CommunicationPage from "./pages/dashboard/CommunicationPage";
+import SettingsPage from "./pages/dashboard/SettingsPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -43,20 +68,19 @@ const App = () => (
               <ProtectedRoute><SelectCategory /></ProtectedRoute>
             } />
 
-            {/* School Dashboard */}
             <Route path="/dashboard/school" element={
               <ProtectedRoute><DashboardLayout category="school" /></ProtectedRoute>
             }>
               <Route index element={<SchoolDashboard />} />
               <Route path="students" element={<MembersPage category="school" />} />
-              <Route path="classes" element={<div className="p-4">Classes Page - Coming Soon</div>} />
-              <Route path="courses" element={<div className="p-4">Courses Page - Coming Soon</div>} />
-              <Route path="grades" element={<div className="p-4">Grades Page - Coming Soon</div>} />
+              <Route path="classes" element={<ClassesPage />} />
+              <Route path="courses" element={<CoursesPage />} />
+              <Route path="grades" element={<GradesPage />} />
               <Route path="finance" element={<FinancePage category="school" />} />
-              <Route path="staff" element={<div className="p-4">Staff Page - Coming Soon</div>} />
-              <Route path="attendance" element={<div className="p-4">Attendance Page - Coming Soon</div>} />
-              <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
-              <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
+              <Route path="staff" element={<StaffPage />} />
+              <Route path="attendance" element={<AttendancePage />} />
+              <Route path="events" element={<EventsPage category="school" />} />
+              <Route path="settings" element={<SettingsPage category="school" />} />
             </Route>
 
             {/* Church Dashboard */}
@@ -65,15 +89,15 @@ const App = () => (
             }>
               <Route index element={<ChurchDashboard />} />
               <Route path="members" element={<MembersPage category="church" />} />
-              <Route path="groups" element={<div className="p-4">Groups Page - Coming Soon</div>} />
-              <Route path="services" element={<div className="p-4">Services Page - Coming Soon</div>} />
-              <Route path="media" element={<div className="p-4">Media Page - Coming Soon</div>} />
+              <Route path="groups" element={<GroupsPage />} />
+              <Route path="services" element={<ServicesPage />} />
+              <Route path="media" element={<MediaPage />} />
               <Route path="finance" element={<FinancePage category="church" />} />
-              <Route path="discipleship" element={<div className="p-4">Discipleship Page - Coming Soon</div>} />
-              <Route path="visitors" element={<div className="p-4">Visitors Page - Coming Soon</div>} />
-              <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
-              <Route path="communication" element={<div className="p-4">Communication Page - Coming Soon</div>} />
-              <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
+              <Route path="discipleship" element={<DiscipleshipPage />} />
+              <Route path="visitors" element={<VisitorsPage />} />
+              <Route path="events" element={<EventsPage category="church" />} />
+              <Route path="communication" element={<CommunicationPage category="church" />} />
+              <Route path="settings" element={<SettingsPage category="church" />} />
             </Route>
 
             {/* Organization Dashboard */}
@@ -82,14 +106,14 @@ const App = () => (
             }>
               <Route index element={<OrganizationDashboard />} />
               <Route path="members" element={<MembersPage category="organization" />} />
-              <Route path="projects" element={<div className="p-4">Projects Page - Coming Soon</div>} />
-              <Route path="volunteers" element={<div className="p-4">Volunteers Page - Coming Soon</div>} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="volunteers" element={<VolunteersPage />} />
               <Route path="finance" element={<FinancePage category="organization" />} />
-              <Route path="documents" element={<div className="p-4">Documents Page - Coming Soon</div>} />
-              <Route path="communication" element={<div className="p-4">Communication Page - Coming Soon</div>} />
-              <Route path="events" element={<div className="p-4">Events Page - Coming Soon</div>} />
-              <Route path="inventory" element={<div className="p-4">Inventory Page - Coming Soon</div>} />
-              <Route path="settings" element={<div className="p-4">Settings Page - Coming Soon</div>} />
+              <Route path="documents" element={<DocumentsPage />} />
+              <Route path="communication" element={<CommunicationPage category="organization" />} />
+              <Route path="events" element={<EventsPage category="organization" />} />
+              <Route path="inventory" element={<InventoryPage />} />
+              <Route path="settings" element={<SettingsPage category="organization" />} />
             </Route>
 
             {/* Fallback routes */}
