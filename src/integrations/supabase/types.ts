@@ -168,7 +168,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_organization_admin: {
+        Args: { _organization_id: string; _user_id: string }
+        Returns: boolean
+      }
+      is_organization_member: {
+        Args: { _organization_id: string; _user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
       organization_type: "church" | "school" | "organization"
