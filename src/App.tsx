@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import SchoolDashboard from "./pages/dashboard/school/SchoolDashboard";
 import ChurchDashboard from "./pages/dashboard/church/ChurchDashboard";
 import OrganizationDashboard from "./pages/dashboard/organization/OrganizationDashboard";
+import MembersPage from "./pages/dashboard/MembersPage";
 
 const queryClient = new QueryClient();
 
@@ -46,7 +47,7 @@ const App = () => (
               <ProtectedRoute><DashboardLayout category="school" /></ProtectedRoute>
             }>
               <Route index element={<SchoolDashboard />} />
-              <Route path="students" element={<div className="p-4">Students Page - Coming Soon</div>} />
+              <Route path="students" element={<MembersPage category="school" />} />
               <Route path="classes" element={<div className="p-4">Classes Page - Coming Soon</div>} />
               <Route path="courses" element={<div className="p-4">Courses Page - Coming Soon</div>} />
               <Route path="grades" element={<div className="p-4">Grades Page - Coming Soon</div>} />
@@ -62,7 +63,7 @@ const App = () => (
               <ProtectedRoute><DashboardLayout category="church" /></ProtectedRoute>
             }>
               <Route index element={<ChurchDashboard />} />
-              <Route path="members" element={<div className="p-4">Members Page - Coming Soon</div>} />
+              <Route path="members" element={<MembersPage category="church" />} />
               <Route path="groups" element={<div className="p-4">Groups Page - Coming Soon</div>} />
               <Route path="services" element={<div className="p-4">Services Page - Coming Soon</div>} />
               <Route path="media" element={<div className="p-4">Media Page - Coming Soon</div>} />
@@ -79,7 +80,7 @@ const App = () => (
               <ProtectedRoute><DashboardLayout category="organization" /></ProtectedRoute>
             }>
               <Route index element={<OrganizationDashboard />} />
-              <Route path="members" element={<div className="p-4">Members Page - Coming Soon</div>} />
+              <Route path="members" element={<MembersPage category="organization" />} />
               <Route path="projects" element={<div className="p-4">Projects Page - Coming Soon</div>} />
               <Route path="volunteers" element={<div className="p-4">Volunteers Page - Coming Soon</div>} />
               <Route path="finance" element={<div className="p-4">Finance Page - Coming Soon</div>} />
