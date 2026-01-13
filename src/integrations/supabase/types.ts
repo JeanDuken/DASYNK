@@ -14,6 +14,197 @@ export type Database = {
   }
   public: {
     Tables: {
+      member_documents: {
+        Row: {
+          document_name: string
+          document_type: string
+          file_size: number | null
+          file_url: string
+          id: string
+          member_id: string
+          mime_type: string | null
+          organization_id: string
+          uploaded_at: string
+        }
+        Insert: {
+          document_name: string
+          document_type: string
+          file_size?: number | null
+          file_url: string
+          id?: string
+          member_id: string
+          mime_type?: string | null
+          organization_id: string
+          uploaded_at?: string
+        }
+        Update: {
+          document_name?: string
+          document_type?: string
+          file_size?: number | null
+          file_url?: string
+          id?: string
+          member_id?: string
+          mime_type?: string | null
+          organization_id?: string
+          uploaded_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "member_documents_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "member_documents_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      members: {
+        Row: {
+          address: string | null
+          badge_number: string | null
+          baptism_date: string | null
+          city: string | null
+          contribution_amount: number | null
+          contribution_frequency: string | null
+          conversion_date: string | null
+          created_at: string
+          date_of_birth: string | null
+          death_date: string | null
+          email: string | null
+          emergency_contact: string | null
+          emergency_phone: string | null
+          enrollment_date: string | null
+          first_name: string
+          gender: string | null
+          grade_level: string | null
+          graduation_date: string | null
+          groups: string[] | null
+          id: string
+          last_contribution_date: string | null
+          last_name: string
+          marriage_date: string | null
+          member_role: string | null
+          member_since: string | null
+          membership_end: string | null
+          membership_start: string | null
+          membership_type: string | null
+          notes: string | null
+          organization_id: string
+          parent_email: string | null
+          parent_name: string | null
+          parent_phone: string | null
+          phone: string | null
+          photo_url: string | null
+          presentation_date: string | null
+          reference_person: string | null
+          responsible_person: string | null
+          status: string
+          student_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          badge_number?: string | null
+          baptism_date?: string | null
+          city?: string | null
+          contribution_amount?: number | null
+          contribution_frequency?: string | null
+          conversion_date?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          death_date?: string | null
+          email?: string | null
+          emergency_contact?: string | null
+          emergency_phone?: string | null
+          enrollment_date?: string | null
+          first_name: string
+          gender?: string | null
+          grade_level?: string | null
+          graduation_date?: string | null
+          groups?: string[] | null
+          id?: string
+          last_contribution_date?: string | null
+          last_name: string
+          marriage_date?: string | null
+          member_role?: string | null
+          member_since?: string | null
+          membership_end?: string | null
+          membership_start?: string | null
+          membership_type?: string | null
+          notes?: string | null
+          organization_id: string
+          parent_email?: string | null
+          parent_name?: string | null
+          parent_phone?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          presentation_date?: string | null
+          reference_person?: string | null
+          responsible_person?: string | null
+          status?: string
+          student_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          badge_number?: string | null
+          baptism_date?: string | null
+          city?: string | null
+          contribution_amount?: number | null
+          contribution_frequency?: string | null
+          conversion_date?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          death_date?: string | null
+          email?: string | null
+          emergency_contact?: string | null
+          emergency_phone?: string | null
+          enrollment_date?: string | null
+          first_name?: string
+          gender?: string | null
+          grade_level?: string | null
+          graduation_date?: string | null
+          groups?: string[] | null
+          id?: string
+          last_contribution_date?: string | null
+          last_name?: string
+          marriage_date?: string | null
+          member_role?: string | null
+          member_since?: string | null
+          membership_end?: string | null
+          membership_start?: string | null
+          membership_type?: string | null
+          notes?: string | null
+          organization_id?: string
+          parent_email?: string | null
+          parent_name?: string | null
+          parent_phone?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          presentation_date?: string | null
+          reference_person?: string | null
+          responsible_person?: string | null
+          status?: string
+          student_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "members_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       organization_members: {
         Row: {
           created_at: string
