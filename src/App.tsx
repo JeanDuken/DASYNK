@@ -46,7 +46,17 @@ import EventsPage from "./pages/dashboard/EventsPage";
 import CommunicationPage from "./pages/dashboard/CommunicationPage";
 import SettingsPage from "./pages/dashboard/SettingsPage";
 
-const queryClient = new QueryClient();
+// Create a stable QueryClient instance outside of the component
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 30, // 30 minutes (formerly cacheTime)
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
