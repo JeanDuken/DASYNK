@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useRef, useCallback } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -17,45 +17,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
-  const initialized = useRef(false);
 
   useEffect(() => {
-    // Prevent double initialization in React StrictMode
-    if (initialized.current) return;
-    initialized.current = true;
-
     let mounted = true;
 
-    // First, get the initial session
-    const initializeAuth = async () => {
-      try {
-        const { data: { session: initialSession } } = await supabase.auth.getSession();
-        
-        if (mounted) {
-          setSession(initialSession);
-          setUser(initialSession?.user ?? null);
-          setLoading(false);
-        }
-      } catch (error) {
-        console.error('Error getting session:', error);
-        if (mounted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    initializeAuth();
-
-    // Then set up the auth state listener for future changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, currentSession) => {
-        if (mounted) {
-          setSession(currentSession);
-          setUser(currentSession?.user ?? null);
-          setLoading(false);
-        }
-      }
-    );
+    // Hydrate auth state via the initial auth event; avoids getSession/onAuthStateChange races
+    // and prevents redirect loops right after navigation.
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, currentSession) => {
+      if (!mounted) return;
+      setSession(currentSession);
+      setUser(currentSession?.user ?? null);
+      setLoading(false);
+    });
 
     return () => {
       mounted = false;
@@ -64,24 +39,44 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signUp = useCallback(async (email: string, password: string, fullName: string) => {
-    const { error } = await supabase.auth.signUp({
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         emailRedirectTo: `${window.location.origin}/`,
-        data: { full_name: fullName }
-      }
+        data: { full_name: fullName },
+      },
     });
+
+    if (!error && data.session) {
+      setSession(data.session);
+      setUser(data.session.user);
+    }
+
+    setLoading(false);
     return { error };
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    setLoading(true);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (!error && data.session) {
+      setSession(data.session);
+      setUser(data.session.user);
+    }
+
+    setLoading(false);
     return { error };
   }, []);
 
   const signOut = useCallback(async () => {
+    setLoading(true);
     await supabase.auth.signOut();
+    setSession(null);
+    setUser(null);
+    setLoading(false);
   }, []);
 
   // Memoize context value to prevent unnecessary re-renders
