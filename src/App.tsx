@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
-import { DashboardLayout } from "@/components/layout/DashboardLayout";
+import { DashboardLayout } from "./components/layout/DashboardLayout";
 import '@/i18n';
 
 import Landing from "./pages/Landing";
