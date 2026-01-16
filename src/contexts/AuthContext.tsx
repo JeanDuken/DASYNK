@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback, useRef } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -17,19 +17,41 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const hydratedRef = useRef(false);
 
   useEffect(() => {
     let mounted = true;
 
-    // Hydrate auth state via the initial auth event; avoids getSession/onAuthStateChange races
-    // and prevents redirect loops right after navigation.
+    // 1) Hydrate synchronously from persisted session (reliable on hard reload)
+    const hydrate = async () => {
+      try {
+        const { data } = await supabase.auth.getSession();
+        if (!mounted) return;
+        setSession(data.session);
+        setUser(data.session?.user ?? null);
+      } catch (error) {
+        console.error('Error getting session:', error);
+      } finally {
+        if (mounted) {
+          hydratedRef.current = true;
+          setLoading(false);
+        }
+      }
+    };
+
+    hydrate();
+
+    // 2) Listen for future auth changes (sign-in/out, token refresh, etc.)
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, currentSession) => {
       if (!mounted) return;
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
-      setLoading(false);
+
+      // Avoid briefly flipping to "not loading" with a null user before hydration completes,
+      // which would trigger a redirect to /auth.
+      if (hydratedRef.current) setLoading(false);
     });
 
     return () => {

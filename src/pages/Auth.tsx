@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -12,8 +12,13 @@ const Auth = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, user, loading: authLoading } = useAuth();
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (authLoading) return;
+    if (user) navigate('/dashboard', { replace: true });
+  }, [authLoading, user, navigate]);
 
   const [isSignUp, setIsSignUp] = useState(searchParams.get('mode') === 'signup');
   const [loading, setLoading] = useState(false);
