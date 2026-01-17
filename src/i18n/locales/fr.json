@@ -38,7 +38,8 @@
     "deleteSuccess": "Supprimé avec succès",
     "saveSuccess": "Enregistré avec succès",
     "updateSuccess": "Mis à jour avec succès",
-    "createSuccess": "Créé avec succès"
+    "createSuccess": "Créé avec succès",
+    "tasks": "Tâches"
   },
   "landing": {
     "hero": {

@@ -24,6 +24,7 @@ import FinancePage from "./pages/dashboard/FinancePage";
 import ClassesPage from "./pages/dashboard/ClassesPage";
 import CoursesPage from "./pages/dashboard/CoursesPage";
 import GradesPage from "./pages/dashboard/GradesPage";
+import TasksPage from "./pages/dashboard/TasksPage";
 import StaffPage from "./pages/dashboard/StaffPage";
 
 // Church specific pages
@@ -85,6 +86,7 @@ const App = () => (
               <Route path="classes" element={<ClassesPage />} />
               <Route path="courses" element={<CoursesPage />} />
               <Route path="grades" element={<GradesPage />} />
+              <Route path="tasks" element={<TasksPage />} />
               <Route path="finance" element={<FinancePage category="school" />} />
               <Route path="staff" element={<StaffPage />} />
               <Route path="attendance" element={<AttendancePage />} />
@@ -104,6 +106,7 @@ const App = () => (
               <Route path="finance" element={<FinancePage category="church" />} />
               <Route path="discipleship" element={<DiscipleshipPage />} />
               <Route path="visitors" element={<VisitorsPage />} />
+              <Route path="tasks" element={<TasksPage />} />
               <Route path="events" element={<EventsPage category="church" />} />
               <Route path="communication" element={<CommunicationPage category="church" />} />
               <Route path="settings" element={<SettingsPage category="church" />} />
@@ -120,6 +123,7 @@ const App = () => (
               <Route path="finance" element={<FinancePage category="organization" />} />
               <Route path="documents" element={<DocumentsPage />} />
               <Route path="communication" element={<CommunicationPage category="organization" />} />
+              <Route path="tasks" element={<TasksPage />} />
               <Route path="events" element={<EventsPage category="organization" />} />
               <Route path="inventory" element={<InventoryPage />} />
               <Route path="settings" element={<SettingsPage category="organization" />} />
