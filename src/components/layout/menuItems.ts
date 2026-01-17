@@ -20,6 +20,7 @@ import {
   Briefcase,
   FolderOpen,
   Package,
+  CheckSquare,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -35,6 +36,7 @@ const schoolMenu: MenuItem[] = [
   { path: '/classes', label: 'school.sidebar.classes', icon: School },
   { path: '/courses', label: 'school.sidebar.courses', icon: BookOpenCheck },
   { path: '/grades', label: 'school.sidebar.grades', icon: ClipboardList },
+  { path: '/tasks', label: 'common.tasks', icon: CheckSquare },
   { path: '/finance', label: 'school.sidebar.finance', icon: Wallet },
   { path: '/staff', label: 'school.sidebar.staff', icon: UserCog },
   { path: '/attendance', label: 'school.sidebar.attendance', icon: ClipboardCheck },
@@ -51,6 +53,7 @@ const churchMenu: MenuItem[] = [
   { path: '/finance', label: 'church.sidebar.finance', icon: DollarSign },
   { path: '/discipleship', label: 'church.sidebar.discipleship', icon: BookOpen },
   { path: '/visitors', label: 'church.sidebar.visitors', icon: UserPlus },
+  { path: '/tasks', label: 'common.tasks', icon: CheckSquare },
   { path: '/events', label: 'church.sidebar.events', icon: Calendar },
   { path: '/communication', label: 'church.sidebar.communication', icon: MessageSquare },
   { path: '/settings', label: 'church.sidebar.settings', icon: Settings },
@@ -63,6 +66,7 @@ const organizationMenu: MenuItem[] = [
   { path: '/volunteers', label: 'organization.sidebar.volunteers', icon: UsersRound },
   { path: '/finance', label: 'organization.sidebar.finance', icon: DollarSign },
   { path: '/documents', label: 'organization.sidebar.documents', icon: FolderOpen },
+  { path: '/tasks', label: 'common.tasks', icon: CheckSquare },
   { path: '/communication', label: 'organization.sidebar.communication', icon: MessageSquare },
   { path: '/events', label: 'organization.sidebar.events', icon: Calendar },
   { path: '/inventory', label: 'organization.sidebar.inventory', icon: Package },
