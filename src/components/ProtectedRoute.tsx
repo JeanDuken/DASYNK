@@ -1,5 +1,13 @@
-const ProtectedRoute = ({ children }) => {
+import React from "react";
+
+type ProtectedRouteProps = {
+  children: React.ReactNode;
+};
+
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   return <>{children}</>;
 };
 
+export { ProtectedRoute };
 export default ProtectedRoute;
+
