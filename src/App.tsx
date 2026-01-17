@@ -99,13 +99,32 @@ const App = () => (
               <ProtectedRoute><DashboardLayout category="church" /></ProtectedRoute>
             }>
               <Route index element={<ChurchDashboard />} />
+              {/* Membres */}
               <Route path="members" element={<MembersPage category="church" />} />
-              <Route path="groups" element={<GroupsPage />} />
-              <Route path="services" element={<ServicesPage />} />
-              <Route path="media" element={<MediaPage />} />
-              <Route path="finance" element={<FinancePage category="church" />} />
-              <Route path="discipleship" element={<DiscipleshipPage />} />
+              <Route path="members/new" element={<MembersPage category="church" />} />
               <Route path="visitors" element={<VisitorsPage />} />
+              {/* Groupes & Départements */}
+              <Route path="groups" element={<GroupsPage />} />
+              <Route path="groups/departments" element={<GroupsPage />} />
+              <Route path="groups/ministries" element={<GroupsPage />} />
+              {/* Services & Cultes */}
+              <Route path="services" element={<ServicesPage />} />
+              <Route path="services/teams" element={<ServicesPage />} />
+              <Route path="services/attendance" element={<AttendancePage />} />
+              {/* Dons & Finances */}
+              <Route path="finance" element={<FinancePage category="church" />} />
+              <Route path="finance/donations" element={<FinancePage category="church" />} />
+              <Route path="finance/tithes" element={<FinancePage category="church" />} />
+              <Route path="finance/expenses" element={<FinancePage category="church" />} />
+              <Route path="finance/reports" element={<FinancePage category="church" />} />
+              {/* Média & Streaming */}
+              <Route path="media" element={<MediaPage />} />
+              <Route path="media/sermons" element={<MediaPage />} />
+              <Route path="media/worship" element={<MediaPage />} />
+              <Route path="media/gallery" element={<MediaPage />} />
+              <Route path="media/livestream" element={<MediaPage />} />
+              {/* Autres */}
+              <Route path="discipleship" element={<DiscipleshipPage />} />
               <Route path="tasks" element={<TasksPage />} />
               <Route path="events" element={<EventsPage category="church" />} />
               <Route path="communication" element={<CommunicationPage category="church" />} />

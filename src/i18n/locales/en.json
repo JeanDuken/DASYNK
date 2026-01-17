@@ -180,9 +180,37 @@
       "title": "Members",
       "list": "Member List",
       "add": "Add Member",
+      "profile": "Member Profile",
+      "documents": "Documents",
       "conversions": "Conversions",
       "baptisms": "Baptisms",
       "cards": "Member Cards"
+    },
+    "groups": {
+      "list": "All Groups",
+      "departments": "Departments",
+      "ministries": "Ministries",
+      "create": "Create Group"
+    },
+    "services": {
+      "schedule": "Service Schedule",
+      "teams": "Service Teams",
+      "attendance": "Attendance",
+      "plan": "Plan a Service"
+    },
+    "finance": {
+      "dashboard": "Overview",
+      "donations": "Donations",
+      "tithes": "Tithes",
+      "expenses": "Expenses",
+      "reports": "Financial Reports"
+    },
+    "media": {
+      "library": "Media Library",
+      "sermons": "Sermons",
+      "worship": "Worship Songs",
+      "gallery": "Photo Gallery",
+      "livestream": "Live Streaming"
     }
   },
   "organization": {

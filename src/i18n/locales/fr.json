@@ -158,6 +158,53 @@
     "dashboard": "Tableau de Bord",
     "settings": "Paramètres"
   },
+  "church": {
+    "sidebar": {
+      "dashboard": "Tableau de Bord",
+      "members": "Membres",
+      "groups": "Groupes & Départements",
+      "services": "Services & Cultes",
+      "finance": "Dons & Finances",
+      "media": "Média & Streaming",
+      "discipleship": "Discipolat",
+      "visitors": "Visiteurs",
+      "events": "Événements",
+      "communication": "Communication",
+      "settings": "Paramètres"
+    },
+    "members": {
+      "list": "Liste des Membres",
+      "add": "Ajouter un Membre",
+      "profile": "Profil du Membre",
+      "documents": "Documents"
+    },
+    "groups": {
+      "list": "Tous les Groupes",
+      "departments": "Départements",
+      "ministries": "Ministères",
+      "create": "Créer un Groupe"
+    },
+    "services": {
+      "schedule": "Programme des Cultes",
+      "teams": "Équipes de Service",
+      "attendance": "Présences",
+      "plan": "Planifier un Culte"
+    },
+    "finance": {
+      "dashboard": "Vue d'ensemble",
+      "donations": "Dons",
+      "tithes": "Dîmes",
+      "expenses": "Dépenses",
+      "reports": "Rapports Financiers"
+    },
+    "media": {
+      "library": "Médiathèque",
+      "sermons": "Prédications",
+      "worship": "Louanges",
+      "gallery": "Galerie Photos",
+      "livestream": "Live Streaming"
+    }
+  },
   "members": {
     "title": "Membres",
     "addMember": "Ajouter un Membre",
