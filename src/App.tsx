@@ -78,19 +78,33 @@ const App = () => (
               <ProtectedRoute><SelectCategory /></ProtectedRoute>
             } />
 
+            {/* School Dashboard */}
             <Route path="/dashboard/school" element={
               <ProtectedRoute><DashboardLayout category="school" /></ProtectedRoute>
             }>
               <Route index element={<SchoolDashboard />} />
+              {/* Élèves */}
               <Route path="students" element={<MembersPage category="school" />} />
+              <Route path="students/new" element={<MembersPage category="school" />} />
+              <Route path="students/attendance" element={<AttendancePage />} />
+              {/* Classes & Cours */}
               <Route path="classes" element={<ClassesPage />} />
               <Route path="courses" element={<CoursesPage />} />
               <Route path="grades" element={<GradesPage />} />
-              <Route path="tasks" element={<TasksPage />} />
-              <Route path="finance" element={<FinancePage category="school" />} />
+              {/* Personnel */}
               <Route path="staff" element={<StaffPage />} />
+              <Route path="staff/teachers" element={<StaffPage />} />
+              <Route path="staff/schedule" element={<StaffPage />} />
+              {/* Finance */}
+              <Route path="finance" element={<FinancePage category="school" />} />
+              <Route path="finance/tuition" element={<FinancePage category="school" />} />
+              <Route path="finance/payments" element={<FinancePage category="school" />} />
+              <Route path="finance/reports" element={<FinancePage category="school" />} />
+              {/* Autres */}
+              <Route path="tasks" element={<TasksPage />} />
               <Route path="attendance" element={<AttendancePage />} />
               <Route path="events" element={<EventsPage category="school" />} />
+              <Route path="communication" element={<CommunicationPage category="school" />} />
               <Route path="settings" element={<SettingsPage category="school" />} />
             </Route>
 
@@ -136,13 +150,25 @@ const App = () => (
               <ProtectedRoute><DashboardLayout category="organization" /></ProtectedRoute>
             }>
               <Route index element={<OrganizationDashboard />} />
+              {/* Membres */}
               <Route path="members" element={<MembersPage category="organization" />} />
-              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="members/new" element={<MembersPage category="organization" />} />
               <Route path="volunteers" element={<VolunteersPage />} />
+              {/* Projets */}
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="projects/new" element={<ProjectsPage />} />
+              <Route path="projects/active" element={<ProjectsPage />} />
+              {/* Finance */}
               <Route path="finance" element={<FinancePage category="organization" />} />
+              <Route path="finance/income" element={<FinancePage category="organization" />} />
+              <Route path="finance/expenses" element={<FinancePage category="organization" />} />
+              <Route path="finance/reports" element={<FinancePage category="organization" />} />
+              {/* Documents */}
               <Route path="documents" element={<DocumentsPage />} />
-              <Route path="communication" element={<CommunicationPage category="organization" />} />
+              <Route path="documents/templates" element={<DocumentsPage />} />
+              {/* Autres */}
               <Route path="tasks" element={<TasksPage />} />
+              <Route path="communication" element={<CommunicationPage category="organization" />} />
               <Route path="events" element={<EventsPage category="organization" />} />
               <Route path="inventory" element={<InventoryPage />} />
               <Route path="settings" element={<SettingsPage category="organization" />} />

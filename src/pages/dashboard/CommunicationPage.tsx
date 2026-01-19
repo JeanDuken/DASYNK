@@ -16,7 +16,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Plus, Search, Send, Mail, MessageSquare, Bell, Edit, Trash2, Clock, CheckCircle } from 'lucide-react';
 
 interface CommunicationPageProps {
-  category: 'church' | 'organization';
+  category: 'school' | 'church' | 'organization';
 }
 
 const CommunicationPage = ({ category }: CommunicationPageProps) => {
