@@ -135,23 +135,37 @@
   "school": {
     "sidebar": {
       "dashboard": "Dashboard",
-      "students": "Students & Admissions",
-      "classes": "Classes & Teaching",
-      "courses": "Courses & E-Learning",
-      "grades": "Grades & Exams",
-      "finance": "Finance & Accounting",
-      "staff": "Staff & Administration",
-      "attendance": "Attendance & Discipline",
+      "students": "Students",
+      "academics": "Academics",
+      "classes": "Classes",
+      "courses": "Courses",
+      "grades": "Grades",
+      "finance": "Finance",
+      "staff": "Staff",
+      "attendance": "Attendance",
       "events": "Events",
+      "communication": "Communication",
       "settings": "Settings"
     },
     "students": {
       "title": "Students",
       "list": "Student List",
       "add": "Add Student",
+      "attendance": "Student Attendance",
       "enrollments": "Enrollments",
       "records": "Academic Records",
       "parents": "Parents & Guardians"
+    },
+    "staff": {
+      "list": "Staff List",
+      "teachers": "Teachers",
+      "schedule": "Schedule"
+    },
+    "finance": {
+      "dashboard": "Overview",
+      "tuition": "Tuition Fees",
+      "payments": "Payments",
+      "reports": "Financial Reports"
     },
     "classes": {
       "title": "Classes",
@@ -216,13 +230,13 @@
   "organization": {
     "sidebar": {
       "dashboard": "Dashboard",
-      "members": "Members & Subscriptions",
-      "projects": "Projects & Programs",
-      "volunteers": "Volunteers & Teams",
-      "finance": "Finance & Accounting",
+      "members": "Members",
+      "projects": "Projects",
+      "volunteers": "Volunteers",
+      "finance": "Finance",
       "documents": "Documents",
       "communication": "Communication",
-      "events": "Events & Activities",
+      "events": "Events",
       "inventory": "Inventory",
       "settings": "Settings"
     },
@@ -232,6 +246,21 @@
       "add": "Add Member",
       "subscriptions": "Subscriptions",
       "payments": "Payment History"
+    },
+    "projects": {
+      "list": "Project List",
+      "add": "New Project",
+      "active": "Active Projects"
+    },
+    "finance": {
+      "dashboard": "Overview",
+      "income": "Income",
+      "expenses": "Expenses",
+      "reports": "Financial Reports"
+    },
+    "documents": {
+      "list": "All Documents",
+      "templates": "Templates"
     }
   },
   "settings": {
