@@ -86,7 +86,7 @@ const App = () => (
               {/* Élèves */}
               <Route path="students" element={<MembersPage category="school" />} />
               <Route path="students/new" element={<MembersPage category="school" />} />
-              <Route path="students/attendance" element={<AttendancePage />} />
+              <Route path="students/attendance" element={<AttendancePage category="school" />} />
               {/* Classes & Cours */}
               <Route path="classes" element={<ClassesPage />} />
               <Route path="courses" element={<CoursesPage />} />
@@ -102,7 +102,7 @@ const App = () => (
               <Route path="finance/reports" element={<FinancePage category="school" />} />
               {/* Autres */}
               <Route path="tasks" element={<TasksPage />} />
-              <Route path="attendance" element={<AttendancePage />} />
+              <Route path="attendance" element={<AttendancePage category="school" />} />
               <Route path="events" element={<EventsPage category="school" />} />
               <Route path="communication" element={<CommunicationPage category="school" />} />
               <Route path="settings" element={<SettingsPage category="school" />} />
@@ -124,7 +124,7 @@ const App = () => (
               {/* Services & Cultes */}
               <Route path="services" element={<ServicesPage />} />
               <Route path="services/teams" element={<ServicesPage />} />
-              <Route path="services/attendance" element={<AttendancePage />} />
+              <Route path="services/attendance" element={<AttendancePage category="church" />} />
               {/* Dons & Finances */}
               <Route path="finance" element={<FinancePage category="church" />} />
               <Route path="finance/donations" element={<FinancePage category="church" />} />
