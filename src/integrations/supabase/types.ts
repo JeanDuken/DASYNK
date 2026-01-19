@@ -14,6 +14,79 @@ export type Database = {
   }
   public: {
     Tables: {
+      attendance: {
+        Row: {
+          attendance_date: string
+          check_in_time: string | null
+          check_out_time: string | null
+          class_name: string | null
+          created_at: string
+          event_id: string | null
+          event_type: string | null
+          id: string
+          member_id: string
+          note: string | null
+          organization_id: string
+          recorded_by: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          attendance_date?: string
+          check_in_time?: string | null
+          check_out_time?: string | null
+          class_name?: string | null
+          created_at?: string
+          event_id?: string | null
+          event_type?: string | null
+          id?: string
+          member_id: string
+          note?: string | null
+          organization_id: string
+          recorded_by?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          attendance_date?: string
+          check_in_time?: string | null
+          check_out_time?: string | null
+          class_name?: string | null
+          created_at?: string
+          event_id?: string | null
+          event_type?: string | null
+          id?: string
+          member_id?: string
+          note?: string | null
+          organization_id?: string
+          recorded_by?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "attendance_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "attendance_recorded_by_fkey"
+            columns: ["recorded_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       budgets: {
         Row: {
           actual_amount: number
