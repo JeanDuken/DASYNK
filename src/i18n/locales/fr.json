@@ -567,18 +567,23 @@
   "school": {
     "sidebar": {
       "dashboard": "Tableau de Bord",
-      "students": "Élèves et Admissions",
-      "classes": "Classes et Enseignement",
-      "courses": "Cours et E-Learning",
-      "grades": "Notes et Examens",
-      "finance": "Finance et Comptabilité",
-      "staff": "Personnel et Administration",
-      "attendance": "Présences et Discipline",
+      "students": "Élèves",
+      "academics": "Académique",
+      "classes": "Classes",
+      "courses": "Cours",
+      "grades": "Notes",
+      "finance": "Finance",
+      "staff": "Personnel",
+      "attendance": "Présences",
       "events": "Événements",
+      "communication": "Communication",
       "settings": "Paramètres"
     },
     "students": {
       "title": "Élèves",
+      "list": "Liste des Élèves",
+      "add": "Ajouter un Élève",
+      "attendance": "Présences des Élèves",
       "studentId": "ID Élève",
       "gradeLevel": "Niveau",
       "enrollmentDate": "Date d'inscription",
@@ -586,6 +591,17 @@
       "parentName": "Nom du parent",
       "parentPhone": "Téléphone du parent",
       "parentEmail": "Email du parent"
+    },
+    "staff": {
+      "list": "Liste du Personnel",
+      "teachers": "Enseignants",
+      "schedule": "Emploi du Temps"
+    },
+    "finance": {
+      "dashboard": "Vue d'ensemble",
+      "tuition": "Frais de Scolarité",
+      "payments": "Paiements",
+      "reports": "Rapports Financiers"
     },
     "classes": {
       "title": "Classes",
@@ -630,17 +646,19 @@
   "organization": {
     "sidebar": {
       "dashboard": "Tableau de Bord",
-      "members": "Membres et Adhésions",
-      "projects": "Projets et Programmes",
-      "volunteers": "Bénévoles et Équipes",
-      "finance": "Finance et Comptabilité",
+      "members": "Membres",
+      "projects": "Projets",
+      "volunteers": "Bénévoles",
+      "finance": "Finance",
       "documents": "Documents",
       "communication": "Communication",
-      "events": "Événements et Activités",
+      "events": "Événements",
       "inventory": "Inventaire",
       "settings": "Paramètres"
     },
     "members": {
+      "list": "Liste des Membres",
+      "add": "Ajouter un Membre",
       "membershipType": "Type d'adhésion",
       "membershipStart": "Début d'adhésion",
       "membershipEnd": "Fin d'adhésion",
@@ -649,12 +667,31 @@
     },
     "projects": {
       "title": "Projets",
+      "list": "Liste des Projets",
+      "add": "Nouveau Projet",
+      "active": "Projets Actifs",
       "projectName": "Nom du projet",
       "projectManager": "Chef de projet",
       "startDate": "Date de début",
       "endDate": "Date de fin",
       "budget": "Budget",
       "status": "Statut"
+    },
+    "finance": {
+      "dashboard": "Vue d'ensemble",
+      "income": "Revenus",
+      "expenses": "Dépenses",
+      "reports": "Rapports Financiers"
+    },
+    "documents": {
+      "title": "Documents",
+      "list": "Tous les Documents",
+      "templates": "Modèles",
+      "uploadDocument": "Télécharger un Document",
+      "documentName": "Nom du document",
+      "documentType": "Type de document",
+      "uploadDate": "Date de téléchargement",
+      "fileSize": "Taille du fichier"
     },
     "volunteers": {
       "title": "Bénévoles",
@@ -668,14 +705,6 @@
       "quantity": "Quantité",
       "location": "Emplacement",
       "condition": "État"
-    },
-    "documents": {
-      "title": "Documents",
-      "uploadDocument": "Télécharger un Document",
-      "documentName": "Nom du document",
-      "documentType": "Type de document",
-      "uploadDate": "Date de téléchargement",
-      "fileSize": "Taille du fichier"
     }
   },
   "settings": {
